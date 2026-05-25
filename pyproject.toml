@@ -1,0 +1,45 @@
+[project]
+name = "pma-shield"
+version = "0.1.0"
+description = "PMAShield: Detecting Preference Manipulation Attacks via Attention Head Disagreement"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "loguru>=0.7.3",
+    "matplotlib>=3.8",
+    "numpy>=1.26",
+    "pandas>=2.0",
+    "pyyaml>=6.0",
+    "scikit-learn>=1.4",
+    "scipy>=1.12",
+    "seaborn>=0.13",
+    "transformers>=4.45",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pma_shield*"]
+
+[dependency-groups]
+gpu = [
+    "accelerate>=1.0.0",
+    "torch>=2.4",
+    "torchvision>=0.19",
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu128", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchvision = [
+    { index = "pytorch-cu128", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
