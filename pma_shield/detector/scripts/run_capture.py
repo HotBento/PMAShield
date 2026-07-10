@@ -32,7 +32,8 @@ from pathlib import Path
 
 from pma_shield.logger import logger, setup_file_logging
 
-from pma_shield.detector import capture, config, data
+from pma_shield.detector import capture, config
+from pma_shield.detector import data_mcptox as data
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -124,6 +125,25 @@ def _build_parser() -> argparse.ArgumentParser:
         default="auto",
         help="Device mapping: 'auto', 'cuda', 'cpu', or device index. Default: auto.",
     )
+    p.add_argument(
+        "--capture-extras",
+        action="store_true",
+        help=(
+            "Also capture commit-step logits and hidden states, for the "
+            "logit-margin / activation-probe / residual-OOD baselines. "
+            "Requires --batch-size 1 (forces single-sample capture)."
+        ),
+    )
+    p.add_argument(
+        "--hidden-layers",
+        type=int,
+        nargs="+",
+        default=None,
+        help=(
+            "Hidden-state layer indices to save when --capture-extras is set "
+            "(0 = embeddings, num_layers = final layer). Default: final layer only."
+        ),
+    )
     return p
 
 
@@ -159,6 +179,8 @@ def main(argv: list[str] | None = None) -> int:
         resume=not args.no_resume,
         batch_size=args.batch_size,
         provider_kwargs=provider_kwargs,
+        capture_extras=args.capture_extras,
+        hidden_layers=tuple(args.hidden_layers) if args.hidden_layers else None,
     )
     return 0
 

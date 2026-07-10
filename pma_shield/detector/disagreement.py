@@ -168,6 +168,23 @@ def _compute_one_side(
     return _PerSampleMetric(A=A, E=E, D_JS=D_JS, O=O, n_valid_heads=n_valid)
 
 
+def compute_one_side(
+    feats_pair_side: np.ndarray,
+    head_set: list[tuple[int, int]],
+    n_tools: int,
+    target_idx: int,
+) -> _PerSampleMetric:
+    """Public wrapper around :func:`_compute_one_side`.
+
+    Exposed for callers that need to compute the four disagreement metrics
+    on a synthetically constructed feature array — e.g. the adaptive-attack
+    simulation in ``adaptive_attack.py``, which builds hybrid
+    benign/malicious feature vectors to model an attacker who only
+    influences a subset of the selection-head set.
+    """
+    return _compute_one_side(feats_pair_side, head_set, n_tools, target_idx)
+
+
 # ──────────────────────────────────────────────────────────────────────────
 # Public API
 # ──────────────────────────────────────────────────────────────────────────

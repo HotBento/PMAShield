@@ -295,6 +295,7 @@ class HuggingFaceProvider(LLMProvider):
         self._output_attentions = output_attentions
         self._output_hidden_states = output_hidden_states
         self.last_logits = None             # exposed for white-box analysis
+        self.last_commit_logits = None      # logits at the tool-selection commit step (see get_last_commit_logits)
         self.last_attentions = None         # per-layer attention rows (CPU), if enabled
         self.last_attentions_prefill = None # deprecated; retained for compatibility
         self.last_hidden_states = None      # per-layer hidden states (CPU), if enabled
@@ -694,11 +695,13 @@ class HuggingFaceProvider(LLMProvider):
         capture_next_attn = False
         first_generated_attn = None
         first_step_hidden_states = None
+        first_step_logits = None
 
         self.last_attentions = None
         self.last_attentions_prefill = None
         self.last_hidden_states = None
         self.last_logits = None
+        self.last_commit_logits = None
 
         for _step in range(self.max_new_tokens):
             want_attn = False
@@ -722,6 +725,15 @@ class HuggingFaceProvider(LLMProvider):
             next_token_id = int(next_token_cpu[0, 0].item())
             generated_ids.append(next_token_id)
             self.last_logits = logits[0].detach().cpu()
+            if first_step_logits is None:
+                first_step_logits = self.last_logits
+            if capture_next_attn and self.last_commit_logits is None:
+                # Same gating as last_attentions / last_hidden_states: this is
+                # the step immediately after the model has emitted the
+                # call_start + '{"name": "' prefix, i.e. the step at which it
+                # commits to a specific tool. Logits here are over the first
+                # token of the (soon-to-be-chosen) tool name.
+                self.last_commit_logits = self.last_logits
 
             if self._output_attentions and hasattr(outputs, "attentions") and outputs.attentions:
                 attn_cpu = tuple(a[0, :, -1, :].detach().cpu() for a in outputs.attentions)
@@ -760,6 +772,8 @@ class HuggingFaceProvider(LLMProvider):
             self.last_attentions = first_generated_attn
         if self.last_hidden_states is None and first_step_hidden_states is not None:
             self.last_hidden_states = first_step_hidden_states
+        if self.last_commit_logits is None and first_step_logits is not None:
+            self.last_commit_logits = first_step_logits
 
         new_token_ids = torch.tensor(generated_ids, dtype=torch.long)
         completion_tokens = len(generated_ids)
@@ -896,6 +910,19 @@ class HuggingFaceProvider(LLMProvider):
         before the first call.
         """
         return self.last_logits
+
+    def get_last_commit_logits(self):
+        """Return vocab logits at the tool-selection commit step (CPU tensor).
+
+        Unlike :meth:`get_last_logits` (logits of the *last* generated
+        token), this is captured at the same generation step as
+        ``last_attentions`` / ``last_hidden_states`` — the step immediately
+        after the model emits the call_start + '{"name": "' prefix, i.e. the
+        step whose argmax is the first token of the tool it is about to
+        name. Used for the logit-margin baseline (§ rebuttal). Only
+        populated when ``select_tools`` used the stepwise decode path.
+        """
+        return self.last_commit_logits
 
     def get_last_attentions(self):
         """Return per-layer attention rows from the first generated tool token.

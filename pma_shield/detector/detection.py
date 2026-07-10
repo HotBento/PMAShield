@@ -292,6 +292,13 @@ def _loso_logistic_auc(
         "roc_fpr": pooled_fpr,
         "roc_tpr": pooled_tpr,
         "n": int(len(sub)),
+        # Raw pooled out-of-fold (score, label) pairs — kept alongside the
+        # derived ROC curve so downstream security-metric reporting
+        # (TPR@low-FPR, PR-AUC, bootstrap CI; see
+        # scripts/report_security_metrics.py) can be computed exactly rather
+        # than approximated from the curve.
+        "pooled_scores": pooled_scores_arr.tolist(),
+        "pooled_labels": pooled_labels_arr.tolist(),
     }
 
 

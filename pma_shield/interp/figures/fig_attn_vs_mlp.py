@@ -42,3 +42,38 @@ def plot_attn_vs_mlp(
         ax.set_title(title)
     ax.legend(loc="upper left", ncol=2)
     return save_fig(fig, out_dir, name)
+
+
+def plot_attn_vs_mlp_multi_model(
+    attn_share_by_model: dict[str, float],
+    *,
+    out_dir: Path,
+    name: str = "fig_attn_vs_mlp_multi_model",
+    title: str | None = None,
+) -> Path:
+    """Bar chart of aggregate attention share (attn / (attn+MLP)) per model.
+
+    Cross-model companion to :func:`plot_attn_vs_mlp` (Finding 1, rebuttal
+    Nyqg W3): layer counts differ across models (e.g. 40 vs. 36), so a
+    per-layer overlay is not directly comparable — the single aggregate
+    ratio is. ``attn_share_by_model`` maps display name -> attn / (attn+mlp)
+    in [0, 1], e.g. from :func:`pma_shield.interp.concentration_stats.summarize`.
+    """
+    setup_style()
+    models = list(attn_share_by_model.keys())
+    shares = np.array([attn_share_by_model[m] for m in models], dtype=float)
+
+    fig, ax = plt.subplots(figsize=(FIG_SINGLE_W, 1.9))
+    x = np.arange(len(models))
+    ax.bar(x, shares, color=PALETTE["attn"])
+    ax.axhline(0.5, color=PALETTE["neutral"], linestyle="--", linewidth=0.8)
+    ax.set_ylabel("Attention share")
+    ax.set_ylim(0, 1)
+    ax.set_xticks(x)
+    ax.set_xticklabels(models, rotation=20, ha="right")
+    for xi, s in zip(x, shares):
+        if not np.isnan(s):
+            ax.text(xi, s + 0.02, f"{s:.2f}", ha="center", va="bottom", fontsize=7)
+    if title:
+        ax.set_title(title)
+    return save_fig(fig, out_dir, name)

@@ -37,7 +37,8 @@ from pathlib import Path
 
 from loguru import logger
 
-from pma_shield.detector import config, data
+from pma_shield.detector import config
+from pma_shield.detector import data_mcptox as data
 
 
 def _build_parser() -> argparse.ArgumentParser:

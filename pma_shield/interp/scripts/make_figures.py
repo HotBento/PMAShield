@@ -8,7 +8,11 @@ Output: ``figures/interp/*.pdf`` (paths consumed by the LaTeX source).
 
 Expected inputs (per model)::
 
-    results/interp/<SAFE>/patching/layer_attn_mlp.npz   {attn, mlp}      [primary only]
+    results/interp/<SAFE>/patching/layer_attn_mlp.npz   {attn, mlp}      [primary; also any
+                                                                          model with --skip-head
+                                                                          omitted, e.g. Qwen3-4B
+                                                                          for the rebuttal
+                                                                          cross-model check]
     results/interp/<SAFE>/patching/head_importance.npz  {importance}     [all]
     results/interp/<SAFE>/patching/circuit_matrix.npz   {matrix, head_labels}  [primary only]
     results/interp/<SAFE>/head_roles.json                                [primary only]
@@ -37,8 +41,13 @@ from pma_shield.interp.config import (
     model_results_dir,
     model_safe,
 )
-from pma_shield.interp.figures.fig_attn_vs_mlp import plot_attn_vs_mlp
+from pma_shield.interp.concentration_stats import ConcentrationSummary, summarize
+from pma_shield.interp.figures.fig_attn_vs_mlp import (
+    plot_attn_vs_mlp,
+    plot_attn_vs_mlp_multi_model,
+)
 from pma_shield.interp.figures.fig_circuit_matrix import plot_circuit_matrix
+from pma_shield.interp.figures.table_concentration import render_concentration_table
 from pma_shield.interp.figures.fig_disagreement import (
     plot_disagreement_multi_model,
     plot_disagreement_scatter,
@@ -89,6 +98,53 @@ def _do_head_heatmap_primary(out_dir: Path) -> None:
     if npz is None:
         return
     plot_head_heatmap(npz["importance"], out_dir=out_dir)
+
+
+def _load_concentration_summary(model_id: str) -> ConcentrationSummary | None:
+    """Build a :class:`ConcentrationSummary` for one model from whatever
+    Stage-1 patching artefacts are present (missing files -> NaN fields)."""
+    base = model_results_dir(model_id) / "patching"
+    layer_npz = _load_npz(base / "layer_attn_mlp.npz")
+    head_npz = _load_npz(base / "head_importance.npz")
+    if layer_npz is None and head_npz is None:
+        return None
+    return summarize(
+        MODEL_DISPLAY.get(model_id, model_id),
+        layer_attn=layer_npz["attn"] if layer_npz is not None else None,
+        layer_mlp=layer_npz["mlp"] if layer_npz is not None else None,
+        head_importance=head_npz["importance"] if head_npz is not None else None,
+    )
+
+
+def _do_attn_vs_mlp_multi(out_dir: Path) -> None:
+    """Cross-model attention-share bar chart (rebuttal, Nyqg W3)."""
+    shares: dict[str, float] = {}
+    for mid in ALL_MODELS:
+        summary = _load_concentration_summary(mid)
+        if summary is not None and summary.attn_share == summary.attn_share:  # not NaN
+            shares[MODEL_DISPLAY[mid]] = summary.attn_share
+    if len(shares) >= 2:
+        plot_attn_vs_mlp_multi_model(shares, out_dir=out_dir)
+    else:
+        logger.warning(
+            "attn-vs-mlp multi-model chart needs layer_attn_mlp.npz for >= 2 "
+            "models; found {}. Re-run run_patching.py (without --skip-head is "
+            "not required for this) on the missing model(s).",
+            list(shares.keys()),
+        )
+
+
+def _do_concentration_table(out_dir: Path) -> None:
+    """Cross-model Gini / top-6-share / heads-for-half table (rebuttal, Nyqg W3)."""
+    summaries: list[ConcentrationSummary] = []
+    for mid in ALL_MODELS:
+        summary = _load_concentration_summary(mid)
+        if summary is not None:
+            summaries.append(summary)
+    if summaries:
+        render_concentration_table(summaries, out_path=out_dir / "tab_concentration.tex")
+    else:
+        logger.warning("no patching artefacts found for any model; skipping concentration table")
 
 
 def _do_head_heatmap_multi(out_dir: Path) -> None:
@@ -267,6 +323,8 @@ def main() -> None:
     _do_head_heatmap_multi(out_dir)
     _do_disagreement_multi(out_dir)
     _do_circuit_matrix(out_dir)
+    _do_attn_vs_mlp_multi(out_dir)
+    _do_concentration_table(out_dir)
 
     if args.make_mock:
         from pma_shield.interp.scripts import make_mock_figures

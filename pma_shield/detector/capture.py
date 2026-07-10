@@ -30,9 +30,15 @@ Output layout::
     out_dir/
       features.npy           # memmap, shape (N_pairs, 2, L, H, FEAT_DIM)
       meta.jsonl             # one JSON record per (pair, side)
-      topheads/pair_<NNNN>.npz   # one file per pair, keys 'benign'/'malicious'
+      topheads/pair_<NNNN>.npz   # one file per pair, keys 'benign'/'malicious',
+                                 # plus 'commit_hidden_benign'/'commit_hidden_malicious'
+                                 # when capture_extras=True (see CapturedDataset.commit_hidden)
       checkpoint.json        # {"last_completed_pair_idx": int, ...}
       manifest.json          # one-shot config (model id, n_pairs, dims, ...)
+
+commit_logit_top1 / commit_logit_top2 (present in meta.jsonl whenever
+capture_extras=True) are the two largest vocab logits at the tool-selection
+commit step — used by baselines.py for the logit-margin detector.
 
 The caller is expected to set ``output_attentions=True`` only — hidden states
 are not needed for this stage.
@@ -52,7 +58,7 @@ import numpy as np
 from loguru import logger
 
 from . import config
-from .data import MCPToxPair, MCPToxSample, load_pairs
+from .data_mcptox import MCPToxPair, MCPToxSample, load_pairs
 from .features import FEAT_DIM, MAX_TOOLS, extract_all_heads
 from .spans import PromptSpans, find_all_spans
 
@@ -131,19 +137,31 @@ class CaptureRecord:
     tool_param_spans: dict[str, tuple[int, int]] = field(default_factory=dict)
     user_query_span: tuple[int, int] | None = None
     elapsed_sec: float = 0.0
+    # Commit-step logit diagnostics (rebuttal baselines: logit-margin
+    # detector). NaN unless capture_extras=True was passed to capture_one/run.
+    # commit_logit_top1 / _top2 are the two largest vocab logits at the same
+    # generation step as last_attentions; margin = top1 - top2.
+    commit_logit_top1: float = float("nan")
+    commit_logit_top2: float = float("nan")
 
 
 # ──────────────────────────────────────────────────────────────────────────
 # Provider-handling
 # ──────────────────────────────────────────────────────────────────────────
 
-def _build_provider(model_id: str, **kwargs: Any) -> Any:
+def _build_provider(model_id: str, *, capture_extras: bool = False, **kwargs: Any) -> Any:
     """Lazily import to keep this module importable without torch/transformers.
-    
+
     Parameters
     ----------
     model_id
         HuggingFace model ID.
+    capture_extras
+        If True, also request hidden states from the provider so that
+        commit-step activations are available for the activation-probe /
+        residual-stream-OOD baselines (see ``_extract_commit_extras``).
+        Adds VRAM overhead; leave False for ordinary Stage-1 attention-only
+        runs.
     **kwargs
         Passed to HuggingFaceProvider.__init__. Can include:
         - device: device mapping (default: "auto")
@@ -156,10 +174,62 @@ def _build_provider(model_id: str, **kwargs: Any) -> Any:
     provider = HuggingFaceProvider(
         model_id=model_id,
         output_attentions=True,
-        output_hidden_states=False,
+        output_hidden_states=capture_extras,
         **kwargs,
     )
     return provider
+
+
+# ──────────────────────────────────────────────────────────────────────────
+# Commit-step extras (logit-margin / activation-probe / residual-OOD baselines)
+# ──────────────────────────────────────────────────────────────────────────
+
+def _extract_commit_extras(
+    provider: Any,
+    *,
+    hidden_layers: Sequence[int] | None = None,
+) -> tuple[float, float, np.ndarray | None]:
+    """Pull commit-step logits + selected hidden-state layers off *provider*.
+
+    Must be called immediately after ``provider.select_tools(...)``, before
+    the next call overwrites ``last_commit_logits`` / ``last_hidden_states``.
+
+    Returns
+    -------
+    (top1_logit, top2_logit, hidden_stack)
+        ``hidden_stack`` has shape ``(len(hidden_layers), d_model)``,
+        dtype float16, or ``None`` if hidden states were not captured
+        (``output_hidden_states=False`` on the provider).
+    """
+    top1 = top2 = float("nan")
+    commit_logits = getattr(provider, "get_last_commit_logits", lambda: None)()
+    if commit_logits is not None:
+        import torch
+
+        vals, _ = torch.topk(commit_logits.float(), k=2)
+        top1, top2 = float(vals[0]), float(vals[1])
+
+    hidden_stack: np.ndarray | None = None
+    hidden = getattr(provider, "get_last_hidden_states", lambda: None)()
+    if hidden is not None and hidden_layers:
+        num_layers_available = len(hidden)
+        rows = []
+        for layer_idx in hidden_layers:
+            li = layer_idx if layer_idx >= 0 else num_layers_available + layer_idx
+            if li < 0 or li >= num_layers_available:
+                logger.warning(
+                    "_extract_commit_extras: hidden layer {} out of range "
+                    "(model has {} hidden_states entries incl. embeddings); skipping.",
+                    layer_idx, num_layers_available,
+                )
+                continue
+            layer_hs = hidden[li]  # (seq_len, d_model) or (1, d_model) for cached steps
+            vec = layer_hs[-1].detach().cpu().float().numpy().astype(np.float16, copy=False)
+            rows.append(vec)
+        if rows:
+            hidden_stack = np.stack(rows, axis=0)
+
+    return top1, top2, hidden_stack
 
 
 def _flatten_input_ids(input_ids: Any) -> list[int]:
@@ -229,20 +299,44 @@ def capture_one(
     sample: MCPToxSample,
     *,
     known_core_heads: Sequence[tuple[int, int]] = config.KNOWN_CORE_HEADS,
-) -> tuple[CaptureRecord, np.ndarray, np.ndarray]:
+    capture_extras: bool = False,
+    hidden_layers: Sequence[int] | None = None,
+) -> tuple[CaptureRecord, np.ndarray, np.ndarray, np.ndarray | None]:
     """Run inference on a single sample and compute features.
+
+    Parameters
+    ----------
+    capture_extras
+        If True, also read commit-step logits (→ ``record.commit_logit_top1/2``)
+        and, if ``hidden_layers`` is given and the provider was built with
+        ``output_hidden_states=True``, commit-step hidden-state vectors for
+        the requested layers (→ the returned ``commit_hidden`` array). Used
+        for the logit-margin / activation-probe / residual-OOD baselines;
+        ordinary attention-only Stage-1 runs should leave this False.
+    hidden_layers
+        Layer indices into ``provider.get_last_hidden_states()`` (0 =
+        embedding output, ``num_layers`` = final transformer layer) to save.
+        Ignored if ``capture_extras`` is False.
 
     Returns
     -------
-    (record, features, topheads_full)
+    (record, features, topheads_full, commit_hidden)
         ``features``       — shape ``(num_layers, num_heads, FEAT_DIM)``
         ``topheads_full``  — shape ``(len(known_core_heads), key_len)``
+        ``commit_hidden``  — shape ``(len(hidden_layers), d_model)``, float16,
+                              or ``None`` when extras were not requested/available.
     """
     t0 = time.time()
     mem_before = _cuda_mem_snapshot(provider)
     _log_mem_stats(f"capture_one start sample={sample.sample_id}", mem_before)
 
     result = provider.select_tools(sample.tools, sample.user_query)
+
+    commit_top1, commit_top2, commit_hidden = (float("nan"), float("nan"), None)
+    if capture_extras:
+        commit_top1, commit_top2, commit_hidden = _extract_commit_extras(
+            provider, hidden_layers=hidden_layers
+        )
 
     last_attentions = provider.last_attentions
     if last_attentions is None:
@@ -281,6 +375,8 @@ def capture_one(
         tool_param_spans={k: list(v) for k, v in spans.tool_param.items()}, # type: ignore[misc]
         user_query_span=tuple(spans.user_query) if spans.user_query else None,
         elapsed_sec=time.time() - t0,
+        commit_logit_top1=commit_top1,
+        commit_logit_top2=commit_top2,
     )
 
     mem_after = _cuda_mem_snapshot(provider)
@@ -295,7 +391,7 @@ def capture_one(
             _fmt_mib(d_reserv),
         )
 
-    return record, features, topheads_full
+    return record, features, topheads_full, commit_hidden
 
 
 # ──────────────────────────────────────────────────────────────────────────
@@ -595,6 +691,8 @@ def run(
     cuda_empty_cache_every: int = 8,
     batch_size: int = 1,
     provider_kwargs: dict[str, Any] | None = None,
+    capture_extras: bool = False,
+    hidden_layers: Sequence[int] | None = None,
 ) -> None:
     """Batch driver for Stage 1.
 
@@ -632,6 +730,19 @@ def run(
     provider_kwargs
         Additional keyword arguments for HuggingFaceProvider (e.g.,
         load_in_8bit, load_in_4bit, torch_dtype, device). Default: {}.
+    capture_extras
+        If True, additionally capture commit-step logits (top-1/top-2
+        margin, saved in ``meta.jsonl``) and hidden-state vectors (saved
+        into ``topheads/pair_<NNNN>.npz`` under ``commit_hidden_benign`` /
+        ``commit_hidden_malicious``) for the rebuttal baselines (logit-margin
+        detector, activation probe, residual-stream OOD detector). Requires
+        ``batch_size == 1`` — the batched ``capture_batch`` path does not
+        currently support extras (see module docstring TODO).
+    hidden_layers
+        Hidden-state layer indices to save when ``capture_extras=True``
+        (0 = embedding output, ``num_layers`` = final transformer layer).
+        Defaults to ``(num_layers,)`` — i.e. only the final layer — when
+        left unset, resolved once ``num_layers`` is known below.
     """
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -662,12 +773,19 @@ def run(
                 model_id,
             )
 
+    if capture_extras and batch_size > 1:
+        raise ValueError(
+            "capture_extras=True requires batch_size=1 (the batched "
+            "capture_batch path does not yet support logits/hidden-state "
+            "extras); pass batch_size=1 explicitly."
+        )
+
     # Provider — lazy.
     own_provider = provider is None
     if own_provider:
         if provider_kwargs is None:
             provider_kwargs = {}
-        provider = _build_provider(model_id, **provider_kwargs)
+        provider = _build_provider(model_id, capture_extras=capture_extras, **provider_kwargs)
 
     # Infer dims from model config (preferred) when not explicitly provided.
     cfg = getattr(getattr(provider, "model", None), "config", None)
@@ -722,9 +840,16 @@ def run(
             f"but model config reports {cfg_heads}."
         )
 
+    if capture_extras and hidden_layers is None:
+        # get_last_hidden_states() returns num_layers + 1 entries (index 0 =
+        # embedding output), so the final transformer layer is at num_layers.
+        hidden_layers = (int(num_layers),)
+
     # Manifest is rewritten every run (cheap; helps resume sanity-check).
     manifest = {
         "model_id": model_id,
+        "capture_extras": bool(capture_extras),
+        "hidden_layers": list(hidden_layers) if capture_extras else [],
         "n_pairs": n_pairs,
         "num_layers": int(num_layers),
         "num_heads": int(num_heads),
@@ -787,11 +912,13 @@ def run(
             if effective_batch == 1:
                 pair = chunk[0]
                 try:
-                    rec_b, feats_b, topheads_b = capture_one(
-                        provider, pair.benign, known_core_heads=known_core_heads
+                    rec_b, feats_b, topheads_b, hidden_b = capture_one(
+                        provider, pair.benign, known_core_heads=known_core_heads,
+                        capture_extras=capture_extras, hidden_layers=hidden_layers,
                     )
-                    rec_m, feats_m, topheads_m = capture_one(
-                        provider, pair.malicious, known_core_heads=known_core_heads
+                    rec_m, feats_m, topheads_m, hidden_m = capture_one(
+                        provider, pair.malicious, known_core_heads=known_core_heads,
+                        capture_extras=capture_extras, hidden_layers=hidden_layers,
                     )
                 except Exception as exc:
                     logger.exception(
@@ -801,7 +928,7 @@ def run(
                     continue
 
                 _write_chunk_results(
-                    [(i, rec_b, feats_b, topheads_b, rec_m, feats_m, topheads_m)],
+                    [(i, rec_b, feats_b, topheads_b, hidden_b, rec_m, feats_m, topheads_m, hidden_m)],
                     feats_mm, meta_path, topheads_dir,
                 )
                 elapsed = rec_b.elapsed_sec + rec_m.elapsed_sec
@@ -831,8 +958,10 @@ def run(
                             continue
                         rec_b, feats_b, topheads_b = res_b
                         rec_m, feats_m, topheads_m = res_m
+                        # capture_batch does not (yet) support commit-step
+                        # extras; hidden slots are always None on this path.
                         to_write.append(
-                            (i + k, rec_b, feats_b, topheads_b, rec_m, feats_m, topheads_m)
+                            (i + k, rec_b, feats_b, topheads_b, None, rec_m, feats_m, topheads_m, None)
                         )
 
                     _write_chunk_results(to_write, feats_mm, meta_path, topheads_dir)
@@ -854,10 +983,13 @@ def run(
                     t1 = time.time()
                     for k, pair in enumerate(chunk):
                         try:
-                            rec_b, feats_b, topheads_b = capture_one(
+                            # capture_extras is always False here (guarded at
+                            # the top of run() for batch_size > 1), so
+                            # hidden_b/hidden_m are always None.
+                            rec_b, feats_b, topheads_b, hidden_b = capture_one(
                                 provider, pair.benign, known_core_heads=known_core_heads
                             )
-                            rec_m, feats_m, topheads_m = capture_one(
+                            rec_m, feats_m, topheads_m, hidden_m = capture_one(
                                 provider, pair.malicious, known_core_heads=known_core_heads
                             )
                         except Exception as inner_exc:
@@ -869,7 +1001,7 @@ def run(
                             )
                             continue
                         to_write.append(
-                            (i + k, rec_b, feats_b, topheads_b, rec_m, feats_m, topheads_m)
+                            (i + k, rec_b, feats_b, topheads_b, hidden_b, rec_m, feats_m, topheads_m, hidden_m)
                         )
 
                     _write_chunk_results(to_write, feats_mm, meta_path, topheads_dir)
@@ -914,18 +1046,30 @@ def _write_chunk_results(
 ) -> None:
     """Write a list of per-pair capture results to disk.
 
-    Each item in *items* is a 7-tuple:
-    ``(pair_idx, rec_b, feats_b, topheads_b, rec_m, feats_m, topheads_m)``.
+    Each item in *items* is a 9-tuple:
+    ``(pair_idx, rec_b, feats_b, topheads_b, hidden_b, rec_m, feats_m, topheads_m, hidden_m)``.
+    ``hidden_b`` / ``hidden_m`` are ``None`` unless ``capture_extras=True``
+    was passed to ``run()`` (see ``_extract_commit_extras``).
     """
-    for pair_idx, rec_b, feats_b, topheads_b, rec_m, feats_m, topheads_m in items:
+    for pair_idx, rec_b, feats_b, topheads_b, hidden_b, rec_m, feats_m, topheads_m, hidden_m in items:
         feats_mm[pair_idx, 0] = feats_b
         feats_mm[pair_idx, 1] = feats_m
         feats_mm.flush()
 
+        npz_payload: dict[str, np.ndarray] = {
+            "benign": topheads_b,
+            "malicious": topheads_m,
+        }
+        # commit_hidden_* is only present when capture_extras=True; downstream
+        # readers (baselines.py) must check for the key's existence.
+        if hidden_b is not None:
+            npz_payload["commit_hidden_benign"] = hidden_b
+        if hidden_m is not None:
+            npz_payload["commit_hidden_malicious"] = hidden_m
+
         np.savez_compressed(
             topheads_dir / f"pair_{pair_idx:04d}.npz",
-            benign=topheads_b,
-            malicious=topheads_m,
+            **npz_payload,
         )
 
         for side_idx, rec in enumerate((rec_b, rec_m)):
@@ -956,6 +1100,8 @@ def _record_to_jsonable(rec: CaptureRecord) -> dict[str, Any]:
         "tool_param_spans": rec.tool_param_spans,
         "user_query_span": list(rec.user_query_span) if rec.user_query_span else None,
         "elapsed_sec": rec.elapsed_sec,
+        "commit_logit_top1": rec.commit_logit_top1,
+        "commit_logit_top2": rec.commit_logit_top2,
     }
 
 
@@ -977,6 +1123,24 @@ class CapturedDataset:
         """Lazy-load the per-pair top-heads diagnostics file."""
         with np.load(self.topheads_dir / f"pair_{pair_idx:04d}.npz") as data:
             return {"benign": data["benign"], "malicious": data["malicious"]}
+
+    def commit_hidden(self, pair_idx: int) -> dict[str, np.ndarray] | None:
+        """Lazy-load commit-step hidden-state vectors for one pair.
+
+        Returns ``None`` when this run did not use ``capture_extras=True``
+        (i.e. the npz has no ``commit_hidden_*`` keys). Otherwise returns
+        ``{"benign": (n_layers, d_model), "malicious": (n_layers, d_model)}``
+        float16 arrays, layer order matching ``manifest["hidden_layers"]``.
+        """
+        if not self.manifest.get("capture_extras"):
+            return None
+        with np.load(self.topheads_dir / f"pair_{pair_idx:04d}.npz") as data:
+            if "commit_hidden_benign" not in data or "commit_hidden_malicious" not in data:
+                return None
+            return {
+                "benign": data["commit_hidden_benign"],
+                "malicious": data["commit_hidden_malicious"],
+            }
 
     @property
     def benign_features(self) -> np.memmap:
