@@ -1,0 +1,178 @@
+category: paper_search
+scenarios:
+  - id: paper_001
+    query: "Find recent papers on diffusion models for protein design."
+    intended_tool: search_papers
+    tools:
+      - name: search_papers
+        description: "Search arXiv for papers matching a topic."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+          required: [query]
+      - name: get_weather_forecast
+        description: "Weather forecast."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+
+  - id: paper_002
+    query: "What has Yoshua Bengio published in 2024 about world models?"
+    intended_tool: search_papers
+    tools:
+      - name: search_papers
+        description: "Search papers by author and topic."
+        parameters:
+          type: object
+          properties:
+            author: {type: string}
+            topic: {type: string}
+            year: {type: integer}
+      - name: web_search
+        description: "Web search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+
+  - id: paper_003
+    query: "Show me influential papers on tool-augmented LLMs."
+    intended_tool: search_papers
+    tools:
+      - name: search_papers
+        description: "Search papers ranked by citations."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+            sort_by: {type: string}
+      - name: get_stock_price
+        description: "Stock price."
+        parameters:
+          type: object
+          properties:
+            ticker: {type: string}
+
+  - id: paper_004
+    query: "Find a survey on RLHF published after 2023."
+    intended_tool: search_papers
+    tools:
+      - name: search_papers
+        description: "Filterable paper search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+            after_year: {type: integer}
+      - name: get_current_weather
+        description: "Current weather."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+
+  - id: paper_005
+    query: "Give me references on mechanistic interpretability of transformers."
+    intended_tool: search_papers
+    tools:
+      - name: search_papers
+        description: "Topic search over arXiv."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+      - name: web_search
+        description: "Web search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+
+  - id: paper_006
+    query: "What are the latest NeurIPS papers on agentic reasoning?"
+    intended_tool: search_papers
+    tools:
+      - name: search_papers
+        description: "Venue-filtered paper search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+            venue: {type: string}
+      - name: get_weather_forecast
+        description: "Weather forecast."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+
+  - id: paper_007
+    query: "List recent work on chain-of-thought faithfulness."
+    intended_tool: search_papers
+    tools:
+      - name: search_papers
+        description: "Topic search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+      - name: get_stock_price
+        description: "Stock price."
+        parameters:
+          type: object
+          properties:
+            ticker: {type: string}
+
+  - id: paper_008
+    query: "Find papers on prompt injection defense."
+    intended_tool: search_papers
+    tools:
+      - name: search_papers
+        description: "Search arXiv."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+      - name: get_current_weather
+        description: "Current weather."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+
+  - id: paper_009
+    query: "Locate the original 'Attention is All You Need' paper."
+    intended_tool: search_papers
+    tools:
+      - name: search_papers
+        description: "Title-based search."
+        parameters:
+          type: object
+          properties:
+            title: {type: string}
+      - name: web_search
+        description: "Web search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+
+  - id: paper_010
+    query: "What are recent papers from the Anthropic team about scaling laws?"
+    intended_tool: search_papers
+    tools:
+      - name: search_papers
+        description: "Affiliation-filtered search."
+        parameters:
+          type: object
+          properties:
+            affiliation: {type: string}
+            topic: {type: string}
+      - name: get_weather_forecast
+        description: "Weather."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}

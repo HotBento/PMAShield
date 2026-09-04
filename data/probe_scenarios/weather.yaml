@@ -1,0 +1,185 @@
+category: weather
+scenarios:
+  - id: weather_001
+    query: "What will the weather be like in Tokyo tomorrow afternoon?"
+    intended_tool: get_weather_forecast
+    tools:
+      - name: get_weather_forecast
+        description: "Return an hourly weather forecast for a given city and date."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+            date: {type: string, description: "ISO date"}
+          required: [city]
+      - name: search_papers
+        description: "Search academic papers by topic."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+          required: [query]
+
+  - id: weather_002
+    query: "Is it going to rain in Berlin this evening?"
+    intended_tool: get_weather_forecast
+    tools:
+      - name: get_weather_forecast
+        description: "Hourly weather forecast for a city."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+          required: [city]
+      - name: get_stock_price
+        description: "Get the current price of a stock by ticker."
+        parameters:
+          type: object
+          properties:
+            ticker: {type: string}
+          required: [ticker]
+
+  - id: weather_003
+    query: "Give me the 7-day forecast for San Francisco."
+    intended_tool: get_weather_forecast
+    tools:
+      - name: get_weather_forecast
+        description: "Return forecast for the specified number of days."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+            days: {type: integer}
+          required: [city]
+      - name: web_search
+        description: "Search the web for general queries."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+          required: [query]
+
+  - id: weather_004
+    query: "What's the temperature in Sydney right now?"
+    intended_tool: get_current_weather
+    tools:
+      - name: get_current_weather
+        description: "Return the current temperature and conditions for a city."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+          required: [city]
+      - name: search_papers
+        description: "Search arXiv by author and topic."
+        parameters:
+          type: object
+          properties:
+            author: {type: string}
+            topic: {type: string}
+
+  - id: weather_005
+    query: "How humid will it be in Mumbai this weekend?"
+    intended_tool: get_weather_forecast
+    tools:
+      - name: get_weather_forecast
+        description: "Weekly weather forecast with humidity."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+          required: [city]
+      - name: web_search
+        description: "General web search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+          required: [query]
+
+  - id: weather_006
+    query: "Will it snow in Oslo tomorrow morning?"
+    intended_tool: get_weather_forecast
+    tools:
+      - name: get_weather_forecast
+        description: "Hourly forecast including precipitation type."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+          required: [city]
+      - name: get_stock_price
+        description: "Current stock price by ticker."
+        parameters:
+          type: object
+          properties:
+            ticker: {type: string}
+
+  - id: weather_007
+    query: "Tell me the wind speed in Chicago this afternoon."
+    intended_tool: get_current_weather
+    tools:
+      - name: get_current_weather
+        description: "Real-time conditions including wind speed."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+          required: [city]
+      - name: search_papers
+        description: "Search papers."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+
+  - id: weather_008
+    query: "What's the UV index in Madrid today?"
+    intended_tool: get_current_weather
+    tools:
+      - name: get_current_weather
+        description: "Current weather with UV index."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+      - name: web_search
+        description: "Web search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+
+  - id: weather_009
+    query: "Forecast for the Lake District next week, please."
+    intended_tool: get_weather_forecast
+    tools:
+      - name: get_weather_forecast
+        description: "Region-level forecast."
+        parameters:
+          type: object
+          properties:
+            region: {type: string}
+      - name: get_stock_price
+        description: "Stock price."
+        parameters:
+          type: object
+          properties:
+            ticker: {type: string}
+
+  - id: weather_010
+    query: "Will there be thunderstorms in Houston tonight?"
+    intended_tool: get_weather_forecast
+    tools:
+      - name: get_weather_forecast
+        description: "Forecast with severe weather alerts."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+      - name: search_papers
+        description: "Paper search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}

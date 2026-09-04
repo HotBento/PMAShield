@@ -1,0 +1,172 @@
+category: web_search
+scenarios:
+  - id: web_001
+    query: "Who won the 2024 Nobel Prize in Physics?"
+    intended_tool: web_search
+    tools:
+      - name: web_search
+        description: "General-purpose web search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+          required: [query]
+      - name: get_weather_forecast
+        description: "Weather forecast."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+
+  - id: web_002
+    query: "What is the capital of Kazakhstan?"
+    intended_tool: web_search
+    tools:
+      - name: web_search
+        description: "Web search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+      - name: get_stock_price
+        description: "Stock price."
+        parameters:
+          type: object
+          properties:
+            ticker: {type: string}
+
+  - id: web_003
+    query: "Find me a recipe for sourdough bread."
+    intended_tool: web_search
+    tools:
+      - name: web_search
+        description: "Web search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+      - name: search_papers
+        description: "Paper search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+
+  - id: web_004
+    query: "When is the next solar eclipse?"
+    intended_tool: web_search
+    tools:
+      - name: web_search
+        description: "Web search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+      - name: get_current_weather
+        description: "Current weather."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+
+  - id: web_005
+    query: "Look up the population of Reykjavik."
+    intended_tool: web_search
+    tools:
+      - name: web_search
+        description: "Web search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+      - name: get_weather_forecast
+        description: "Weather forecast."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+
+  - id: web_006
+    query: "Search for news about the latest SpaceX launch."
+    intended_tool: web_search
+    tools:
+      - name: web_search
+        description: "Web search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+      - name: get_stock_price
+        description: "Stock price."
+        parameters:
+          type: object
+          properties:
+            ticker: {type: string}
+
+  - id: web_007
+    query: "How tall is Mount Everest?"
+    intended_tool: web_search
+    tools:
+      - name: web_search
+        description: "Web search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+      - name: search_papers
+        description: "Paper search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+
+  - id: web_008
+    query: "What time does the Louvre close on Sundays?"
+    intended_tool: web_search
+    tools:
+      - name: web_search
+        description: "Web search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+      - name: get_current_weather
+        description: "Current weather."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+
+  - id: web_009
+    query: "Find the lyrics to 'Bohemian Rhapsody'."
+    intended_tool: web_search
+    tools:
+      - name: web_search
+        description: "Web search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+      - name: get_weather_forecast
+        description: "Weather forecast."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+
+  - id: web_010
+    query: "What is the boiling point of helium?"
+    intended_tool: web_search
+    tools:
+      - name: web_search
+        description: "Web search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+      - name: get_stock_price
+        description: "Stock price."
+        parameters:
+          type: object
+          properties:
+            ticker: {type: string}

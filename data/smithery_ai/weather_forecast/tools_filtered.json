@@ -1,0 +1,1002 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "@smithery-ai/national-weather-service/get_weather_forecast",
+      "description": "Get multi-day weather forecast for a location in the United States. Perfect for 'What's the forecast for [US location]?' questions. Provides detailed day/night forecasts for up to 7 days.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "number",
+            "default": 7,
+            "description": "Number of days to forecast (1-7, default 7). Each day includes both day and night periods."
+          },
+          "location": {
+            "type": "string",
+            "description": "US location as coordinates (lat,lng) in decimal degrees. Example: '40.7128,-74.0060' for New York City. Must be within US boundaries including states, territories (PR, VI, AS, GU, MP), and coastal waters."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@smithery-ai/national-weather-service",
+    "server_name": "national-weather-service"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@smithery-ai/national-weather-service/get_hourly_forecast",
+      "description": "Get hour-by-hour weather forecast for a location in the United States. Perfect for 'What's the hourly forecast?' or 'Will it rain this afternoon in [US location]?' questions. Provides detailed hourly conditions for up to 48 hours.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "hours": {
+            "type": "number",
+            "default": 24,
+            "description": "Number of hours to forecast (1-48, default 24). Provides temperature, conditions, and precipitation probability for each hour."
+          },
+          "location": {
+            "type": "string",
+            "description": "US location as coordinates (lat,lng) in decimal degrees. Example: '40.7128,-74.0060' for New York City. Must be within US boundaries including states, territories (PR, VI, AS, GU, MP), and coastal waters."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@smithery-ai/national-weather-service",
+    "server_name": "national-weather-service"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@DiogoAzevedo03/ipma-mcp-server/get_weather_forecast",
+      "description": "Obter previsão meteorológica para uma cidade específica em Portugal",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "description": "Nome da cidade (ex: Lisboa, Porto, Coimbra, Faro, etc.)"
+          },
+          "days": {
+            "type": "number",
+            "default": 5,
+            "description": "Número de dias de previsão (máximo 10)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@DiogoAzevedo03/ipma-mcp-server",
+    "server_name": "ipma-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@isdaniel/mcp_weather_server/get_weather_byDateTimeRange",
+      "description": "Get weather information for a specified city between start and end dates.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "description": "The name of the city to fetch weather information for, PLEASE NOTE English name only, if the parameter city isn't English please translate to English before invoking this function."
+          },
+          "end_date": {
+            "type": "string",
+            "description": "End date in format YYYY-MM-DD , please follow ISO 8601 format"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "Start date in format YYYY-MM-DD, please follow ISO 8601 format"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@isdaniel/mcp_weather_server",
+    "server_name": "mcp_weather_server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@isdaniel/mcp_weather_server/get_weather_details",
+      "description": "Get detailed weather information for a specified city as structured JSON data.\n            This tool provides raw weather data for programmatic analysis and processing.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "description": "The name of the city to fetch weather information for, PLEASE NOTE English name only, if the parameter city isn't English please translate to English before invoking this function."
+          },
+          "include_forecast": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether to include forecast data (next 24 hours)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@isdaniel/mcp_weather_server",
+    "server_name": "mcp_weather_server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@hellokitty-v/smithery-mcp-servers/get_weather_forecast",
+      "description": "Get multi-day weather forecast for a location in the United States. Perfect for 'What's the forecast for [US location]?' questions. Provides detailed day/night forecasts for up to 7 days.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "number",
+            "default": 7,
+            "description": "Number of days to forecast (1-7, default 7). Each day includes both day and night periods."
+          },
+          "location": {
+            "type": "string",
+            "description": "US location as coordinates (lat,lng) in decimal degrees. Example: '40.7128,-74.0060' for New York City. Must be within US boundaries including states, territories (PR, VI, AS, GU, MP), and coastal waters."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@hellokitty-v/smithery-mcp-servers",
+    "server_name": "smithery-mcp-servers"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@hellokitty-v/smithery-mcp-servers/get_hourly_forecast",
+      "description": "Get hour-by-hour weather forecast for a location in the United States. Perfect for 'What's the hourly forecast?' or 'Will it rain this afternoon in [US location]?' questions. Provides detailed hourly conditions for up to 48 hours.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "hours": {
+            "type": "number",
+            "default": 24,
+            "description": "Number of hours to forecast (1-48, default 24). Provides temperature, conditions, and precipitation probability for each hour."
+          },
+          "location": {
+            "type": "string",
+            "description": "US location as coordinates (lat,lng) in decimal degrees. Example: '40.7128,-74.0060' for New York City. Must be within US boundaries including states, territories (PR, VI, AS, GU, MP), and coastal waters."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@hellokitty-v/smithery-mcp-servers",
+    "server_name": "smithery-mcp-servers"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@jennyyyyyy7528-cell/weathermcpserverhw3/get_forecast",
+      "description": "Get weather forecast for a location.\n\n    Args:\n        latitude: Latitude of the location\n        longitude: Longitude of the location",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "title": "Latitude"
+          },
+          "longitude": {
+            "type": "number",
+            "title": "Longitude"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@jennyyyyyy7528-cell/weathermcpserverhw3",
+    "server_name": "weathermcpserverhw3"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@adarshem/mcp-server-learn/get-forecast",
+      "description": "Get weather forecast for a location",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "maximum": 90,
+            "minimum": -90,
+            "description": "Latitude of the location"
+          },
+          "longitude": {
+            "type": "number",
+            "maximum": 180,
+            "minimum": -180,
+            "description": "Longitude of the location"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@adarshem/mcp-server-learn",
+    "server_name": "mcp-server-learn"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@brandao-20/mcp_server_ipma/get_weather_forecast",
+      "description": "Obter previsão meteorológica para uma cidade específica em Portugal",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "description": "Nome da cidade (ex: Lisboa, Porto, Coimbra, Faro, etc.)"
+          },
+          "days": {
+            "type": "number",
+            "default": 5,
+            "description": "Número de dias de previsão (máximo 10)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@brandao-20/mcp_server_ipma",
+    "server_name": "mcp_server_ipma"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@yusufsenyer/augment-agent/get_hourly_forecast",
+      "description": "Belirtilen koordinatlarda 24 saatlik hava durumu tahminini getirir",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "maximum": 90,
+            "minimum": -90,
+            "description": "Enlem (-90 ile 90 arası)"
+          },
+          "longitude": {
+            "type": "number",
+            "maximum": 180,
+            "minimum": -180,
+            "description": "Boylam (-180 ile 180 arası)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@yusufsenyer/augment-agent",
+    "server_name": "augment-agent"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@yusufsenyer/augment-agent/get_daily_forecast",
+      "description": "Belirtilen koordinatlarda 7 günlük hava durumu tahminini getirir",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "maximum": 90,
+            "minimum": -90,
+            "description": "Enlem (-90 ile 90 arası)"
+          },
+          "longitude": {
+            "type": "number",
+            "maximum": 180,
+            "minimum": -180,
+            "description": "Boylam (-180 ile 180 arası)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@yusufsenyer/augment-agent",
+    "server_name": "augment-agent"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@yusufsenyer/augment-agent/get_daily_forecast_by_city",
+      "description": "Şehir adına göre 7 günlük hava durumu tahminini getirir (Türkiye şehirleri)",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "description": "Şehir adı (örn: istanbul, ankara, izmir)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@yusufsenyer/augment-agent",
+    "server_name": "augment-agent"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@jennyyyyyy7528-cell/mcpserverhw3/get_forecast",
+      "description": "Get weather forecast for a location.\n\n    Args:\n        latitude: Latitude of the location\n        longitude: Longitude of the location",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "title": "Latitude"
+          },
+          "longitude": {
+            "type": "number",
+            "title": "Longitude"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@jennyyyyyy7528-cell/mcpserverhw3",
+    "server_name": "mcpserverhw3"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@isabelayepes/weather/get_forecast",
+      "description": "Get weather forecast for a location.\n\n    Args:\n        latitude: Latitude of the location\n        longitude: Longitude of the location",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "title": "Latitude"
+          },
+          "longitude": {
+            "type": "number",
+            "title": "Longitude"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@isabelayepes/weather",
+    "server_name": "weather"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@jenniferjiang0511/mit-ai-studio-hw3/get_forecast",
+      "description": "Get weather forecast for a location.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "title": "Latitude"
+          },
+          "longitude": {
+            "type": "number",
+            "title": "Longitude"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@jenniferjiang0511/mit-ai-studio-hw3",
+    "server_name": "mit-ai-studio-hw3"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@akaramanapp/weather-mcp-server/get-forecast",
+      "description": "Get weather forecast for a location",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "maximum": 90,
+            "minimum": -90,
+            "description": "Latitude of the location"
+          },
+          "longitude": {
+            "type": "number",
+            "maximum": 180,
+            "minimum": -180,
+            "description": "Longitude of the location"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@akaramanapp/weather-mcp-server",
+    "server_name": "weather-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@yzsshen/mcp-demo/gridpoint",
+      "description": "Returns raw numerical forecast data for a 2.5km grid area",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "pathParams": {
+            "type": "object",
+            "required": [
+              "wfo",
+              "x",
+              "y"
+            ],
+            "properties": {
+              "x": {
+                "type": "integer",
+                "maximum": 9007199254740991,
+                "minimum": 0,
+                "description": "Forecast grid X coordinate"
+              },
+              "y": {
+                "type": "integer",
+                "maximum": 9007199254740991,
+                "minimum": 0,
+                "description": "Forecast grid Y coordinate"
+              },
+              "wfo": {
+                "enum": [
+                  "AKQ",
+                  "ALY",
+                  "BGM",
+                  "BOX",
+                  "BTV",
+                  "BUF",
+                  "CAE",
+                  "CAR",
+                  "CHS",
+                  "CLE",
+                  "CTP",
+                  "GSP",
+                  "GYX",
+                  "ILM",
+                  "ILN",
+                  "LWX",
+                  "MHX",
+                  "OKX",
+                  "PBZ",
+                  "PHI",
+                  "RAH",
+                  "RLX",
+                  "RNK",
+                  "ABQ",
+                  "AMA",
+                  "BMX",
+                  "BRO",
+                  "CRP",
+                  "EPZ",
+                  "EWX",
+                  "FFC",
+                  "FWD",
+                  "HGX",
+                  "HUN",
+                  "JAN",
+                  "JAX",
+                  "KEY",
+                  "LCH",
+                  "LIX",
+                  "LUB",
+                  "LZK",
+                  "MAF",
+                  "MEG",
+                  "MFL",
+                  "MLB",
+                  "MOB",
+                  "MRX",
+                  "OHX",
+                  "OUN",
+                  "SHV",
+                  "SJT",
+                  "SJU",
+                  "TAE",
+                  "TBW",
+                  "TSA",
+                  "ABR",
+                  "APX",
+                  "ARX",
+                  "BIS",
+                  "BOU",
+                  "CYS",
+                  "DDC",
+                  "DLH",
+                  "DMX",
+                  "DTX",
+                  "DVN",
+                  "EAX",
+                  "FGF",
+                  "FSD",
+                  "GID",
+                  "GJT",
+                  "GLD",
+                  "GRB",
+                  "GRR",
+                  "ICT",
+                  "ILX",
+                  "IND",
+                  "IWX",
+                  "JKL",
+                  "LBF",
+                  "LMK",
+                  "LOT",
+                  "LSX",
+                  "MKX",
+                  "MPX",
+                  "MQT",
+                  "OAX",
+                  "PAH",
+                  "PUB",
+                  "RIW",
+                  "SGF",
+                  "TOP",
+                  "UNR",
+                  "BOI",
+                  "BYZ",
+                  "EKA",
+                  "FGZ",
+                  "GGW",
+                  "HNX",
+                  "LKN",
+                  "LOX",
+                  "MFR",
+                  "MSO",
+                  "MTR",
+                  "OTX",
+                  "PDT",
+                  "PIH",
+                  "PQR",
+                  "PSR",
+                  "REV",
+                  "SEW",
+                  "SGX",
+                  "SLC",
+                  "STO",
+                  "TFX",
+                  "TWC",
+                  "VEF",
+                  "AER",
+                  "AFC",
+                  "AFG",
+                  "AJK",
+                  "ALU",
+                  "GUM",
+                  "HPA",
+                  "HFO",
+                  "PPG",
+                  "STU",
+                  "NH1",
+                  "NH2",
+                  "ONA",
+                  "ONP"
+                ],
+                "description": "Forecast office ID"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@yzsshen/mcp-demo",
+    "server_name": "mcp-demo"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@yzsshen/mcp-demo/gridpoint_forecast",
+      "description": "Returns a textual forecast for a 2.5km grid area",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "headers": {
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Feature-Flags": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "forecast_temperature_qv",
+                    "forecast_wind_speed_qv"
+                  ]
+                },
+                "description": "Enable future and experimental features (see documentation for more info):\n* forecast_temperature_qv: Represent temperature as QuantitativeValue\n* forecast_wind_speed_qv: Represent wind speed as QuantitativeValue\n"
+              }
+            },
+            "additionalProperties": false
+          },
+          "pathParams": {
+            "type": "object",
+            "required": [
+              "wfo",
+              "x",
+              "y"
+            ],
+            "properties": {
+              "x": {
+                "type": "integer",
+                "maximum": 9007199254740991,
+                "minimum": 0,
+                "description": "Forecast grid X coordinate"
+              },
+              "y": {
+                "type": "integer",
+                "maximum": 9007199254740991,
+                "minimum": 0,
+                "description": "Forecast grid Y coordinate"
+              },
+              "wfo": {
+                "enum": [
+                  "AKQ",
+                  "ALY",
+                  "BGM",
+                  "BOX",
+                  "BTV",
+                  "BUF",
+                  "CAE",
+                  "CAR",
+                  "CHS",
+                  "CLE",
+                  "CTP",
+                  "GSP",
+                  "GYX",
+                  "ILM",
+                  "ILN",
+                  "LWX",
+                  "MHX",
+                  "OKX",
+                  "PBZ",
+                  "PHI",
+                  "RAH",
+                  "RLX",
+                  "RNK",
+                  "ABQ",
+                  "AMA",
+                  "BMX",
+                  "BRO",
+                  "CRP",
+                  "EPZ",
+                  "EWX",
+                  "FFC",
+                  "FWD",
+                  "HGX",
+                  "HUN",
+                  "JAN",
+                  "JAX",
+                  "KEY",
+                  "LCH",
+                  "LIX",
+                  "LUB",
+                  "LZK",
+                  "MAF",
+                  "MEG",
+                  "MFL",
+                  "MLB",
+                  "MOB",
+                  "MRX",
+                  "OHX",
+                  "OUN",
+                  "SHV",
+                  "SJT",
+                  "SJU",
+                  "TAE",
+                  "TBW",
+                  "TSA",
+                  "ABR",
+                  "APX",
+                  "ARX",
+                  "BIS",
+                  "BOU",
+                  "CYS",
+                  "DDC",
+                  "DLH",
+                  "DMX",
+                  "DTX",
+                  "DVN",
+                  "EAX",
+                  "FGF",
+                  "FSD",
+                  "GID",
+                  "GJT",
+                  "GLD",
+                  "GRB",
+                  "GRR",
+                  "ICT",
+                  "ILX",
+                  "IND",
+                  "IWX",
+                  "JKL",
+                  "LBF",
+                  "LMK",
+                  "LOT",
+                  "LSX",
+                  "MKX",
+                  "MPX",
+                  "MQT",
+                  "OAX",
+                  "PAH",
+                  "PUB",
+                  "RIW",
+                  "SGF",
+                  "TOP",
+                  "UNR",
+                  "BOI",
+                  "BYZ",
+                  "EKA",
+                  "FGZ",
+                  "GGW",
+                  "HNX",
+                  "LKN",
+                  "LOX",
+                  "MFR",
+                  "MSO",
+                  "MTR",
+                  "OTX",
+                  "PDT",
+                  "PIH",
+                  "PQR",
+                  "PSR",
+                  "REV",
+                  "SEW",
+                  "SGX",
+                  "SLC",
+                  "STO",
+                  "TFX",
+                  "TWC",
+                  "VEF",
+                  "AER",
+                  "AFC",
+                  "AFG",
+                  "AJK",
+                  "ALU",
+                  "GUM",
+                  "HPA",
+                  "HFO",
+                  "PPG",
+                  "STU",
+                  "NH1",
+                  "NH2",
+                  "ONA",
+                  "ONP"
+                ],
+                "description": "Forecast office ID"
+              }
+            },
+            "additionalProperties": false
+          },
+          "queryParams": {
+            "type": "object",
+            "required": [],
+            "properties": {
+              "units": {
+                "enum": [
+                  "us",
+                  "si"
+                ],
+                "default": "us",
+                "description": "Use US customary or SI (metric) units in textual output"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@yzsshen/mcp-demo",
+    "server_name": "mcp-demo"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@yzsshen/mcp-demo/gridpoint_forecast_hourly",
+      "description": "Returns a textual hourly forecast for a 2.5km grid area",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "headers": {
+            "type": "object",
+            "required": [],
+            "properties": {
+              "Feature-Flags": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "forecast_temperature_qv",
+                    "forecast_wind_speed_qv"
+                  ]
+                },
+                "description": "Enable future and experimental features (see documentation for more info):\n* forecast_temperature_qv: Represent temperature as QuantitativeValue\n* forecast_wind_speed_qv: Represent wind speed as QuantitativeValue\n"
+              }
+            },
+            "additionalProperties": false
+          },
+          "pathParams": {
+            "type": "object",
+            "required": [
+              "wfo",
+              "x",
+              "y"
+            ],
+            "properties": {
+              "x": {
+                "type": "integer",
+                "maximum": 9007199254740991,
+                "minimum": 0,
+                "description": "Forecast grid X coordinate"
+              },
+              "y": {
+                "type": "integer",
+                "maximum": 9007199254740991,
+                "minimum": 0,
+                "description": "Forecast grid Y coordinate"
+              },
+              "wfo": {
+                "enum": [
+                  "AKQ",
+                  "ALY",
+                  "BGM",
+                  "BOX",
+                  "BTV",
+                  "BUF",
+                  "CAE",
+                  "CAR",
+                  "CHS",
+                  "CLE",
+                  "CTP",
+                  "GSP",
+                  "GYX",
+                  "ILM",
+                  "ILN",
+                  "LWX",
+                  "MHX",
+                  "OKX",
+                  "PBZ",
+                  "PHI",
+                  "RAH",
+                  "RLX",
+                  "RNK",
+                  "ABQ",
+                  "AMA",
+                  "BMX",
+                  "BRO",
+                  "CRP",
+                  "EPZ",
+                  "EWX",
+                  "FFC",
+                  "FWD",
+                  "HGX",
+                  "HUN",
+                  "JAN",
+                  "JAX",
+                  "KEY",
+                  "LCH",
+                  "LIX",
+                  "LUB",
+                  "LZK",
+                  "MAF",
+                  "MEG",
+                  "MFL",
+                  "MLB",
+                  "MOB",
+                  "MRX",
+                  "OHX",
+                  "OUN",
+                  "SHV",
+                  "SJT",
+                  "SJU",
+                  "TAE",
+                  "TBW",
+                  "TSA",
+                  "ABR",
+                  "APX",
+                  "ARX",
+                  "BIS",
+                  "BOU",
+                  "CYS",
+                  "DDC",
+                  "DLH",
+                  "DMX",
+                  "DTX",
+                  "DVN",
+                  "EAX",
+                  "FGF",
+                  "FSD",
+                  "GID",
+                  "GJT",
+                  "GLD",
+                  "GRB",
+                  "GRR",
+                  "ICT",
+                  "ILX",
+                  "IND",
+                  "IWX",
+                  "JKL",
+                  "LBF",
+                  "LMK",
+                  "LOT",
+                  "LSX",
+                  "MKX",
+                  "MPX",
+                  "MQT",
+                  "OAX",
+                  "PAH",
+                  "PUB",
+                  "RIW",
+                  "SGF",
+                  "TOP",
+                  "UNR",
+                  "BOI",
+                  "BYZ",
+                  "EKA",
+                  "FGZ",
+                  "GGW",
+                  "HNX",
+                  "LKN",
+                  "LOX",
+                  "MFR",
+                  "MSO",
+                  "MTR",
+                  "OTX",
+                  "PDT",
+                  "PIH",
+                  "PQR",
+                  "PSR",
+                  "REV",
+                  "SEW",
+                  "SGX",
+                  "SLC",
+                  "STO",
+                  "TFX",
+                  "TWC",
+                  "VEF",
+                  "AER",
+                  "AFC",
+                  "AFG",
+                  "AJK",
+                  "ALU",
+                  "GUM",
+                  "HPA",
+                  "HFO",
+                  "PPG",
+                  "STU",
+                  "NH1",
+                  "NH2",
+                  "ONA",
+                  "ONP"
+                ],
+                "description": "Forecast office ID"
+              }
+            },
+            "additionalProperties": false
+          },
+          "queryParams": {
+            "type": "object",
+            "required": [],
+            "properties": {
+              "units": {
+                "enum": [
+                  "us",
+                  "si"
+                ],
+                "default": "us",
+                "description": "Use US customary or SI (metric) units in textual output"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@yzsshen/mcp-demo",
+    "server_name": "mcp-demo"
+  }
+]

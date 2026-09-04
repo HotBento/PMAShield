@@ -1,0 +1,518 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "@smithery-ai/national-weather-service/get_weather_forecast",
+      "description": "Get multi-day weather forecast for a location in the United States. Perfect for 'What's the forecast for [US location]?' questions. Provides detailed day/night forecasts for up to 7 days.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "days": {
+            "type": "number",
+            "default": 7,
+            "description": "Number of days to forecast (1-7, default 7). Each day includes both day and night periods."
+          },
+          "location": {
+            "type": "string",
+            "description": "US location as coordinates (lat,lng) in decimal degrees. Example: '40.7128,-74.0060' for New York City. Must be within US boundaries including states, territories (PR, VI, AS, GU, MP), and coastal waters."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@smithery-ai/national-weather-service",
+    "server_name": "national-weather-service"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@smithery-ai/national-weather-service/get_hourly_forecast",
+      "description": "Get hour-by-hour weather forecast for a location in the United States. Perfect for 'What's the hourly forecast?' or 'Will it rain this afternoon in [US location]?' questions. Provides detailed hourly conditions for up to 48 hours.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "hours": {
+            "type": "number",
+            "default": 24,
+            "description": "Number of hours to forecast (1-48, default 24). Provides temperature, conditions, and precipitation probability for each hour."
+          },
+          "location": {
+            "type": "string",
+            "description": "US location as coordinates (lat,lng) in decimal degrees. Example: '40.7128,-74.0060' for New York City. Must be within US boundaries including states, territories (PR, VI, AS, GU, MP), and coastal waters."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@smithery-ai/national-weather-service",
+    "server_name": "national-weather-service"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@DiogoAzevedo03/ipma-mcp-server/get_weather_forecast",
+      "description": "Obter previsão meteorológica para uma cidade específica em Portugal",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "description": "Nome da cidade (ex: Lisboa, Porto, Coimbra, Faro, etc.)"
+          },
+          "days": {
+            "type": "number",
+            "default": 5,
+            "description": "Número de dias de previsão (máximo 10)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@DiogoAzevedo03/ipma-mcp-server",
+    "server_name": "ipma-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@isdaniel/mcp_weather_server/get_weather_byDateTimeRange",
+      "description": "Get weather information for a specified city between start and end dates.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string",
+            "description": "The name of the city to fetch weather information for, PLEASE NOTE English name only, if the parameter city isn't English please translate to English before invoking this function."
+          },
+          "end_date": {
+            "type": "string",
+            "description": "End date in format YYYY-MM-DD , please follow ISO 8601 format"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "Start date in format YYYY-MM-DD, please follow ISO 8601 format"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@isdaniel/mcp_weather_server",
+    "server_name": "mcp_weather_server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "exa/web_search_exa",
+      "description": "Search the web using Exa AI - performs real-time web searches and can scrape content from specific URLs. Supports configurable result counts and returns the content from the most relevant websites.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "auto",
+              "fast",
+              "deep"
+            ],
+            "type": "string",
+            "description": "Search type - 'auto': balanced search (default), 'fast': quick results, 'deep': comprehensive search"
+          },
+          "query": {
+            "type": "string",
+            "description": "Websearch query"
+          },
+          "livecrawl": {
+            "enum": [
+              "fallback",
+              "preferred"
+            ],
+            "type": "string",
+            "description": "Live crawl mode - 'fallback': use live crawling as backup if cached content unavailable, 'preferred': prioritize live crawling (default: 'fallback')"
+          },
+          "numResults": {
+            "type": "number",
+            "description": "Number of search results to return (default: 8)"
+          },
+          "contextMaxCharacters": {
+            "type": "number",
+            "description": "Maximum characters for context string optimized for LLMs (default: 10000)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/exa",
+    "server_name": "exa"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@LinkupPlatform/linkup-mcp-server/linkup-search",
+      "description": "Search the web in real time using Linkup to retrieve current information, facts, and news from trusted sources. Use this tool for: real-time data (weather, stocks, sports scores, events), breaking news, current events, recent research, product information, up-to-date prices, schedules, and any information not available in your knowledge base. Returns comprehensive content from the most relevant sources.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "depth": {
+            "enum": [
+              "standard",
+              "deep"
+            ],
+            "type": "string",
+            "default": "standard",
+            "description": "The search depth to perform. Use \"standard\" for queries with direct answers, \"deep\" for complex research requiring analysis across multiple sources."
+          },
+          "query": {
+            "type": "string",
+            "description": "Natural language search query. Full questions work best, e.g., \"How does the new EU AI Act affect startups?\""
+          },
+          "includeImages": {
+            "type": "boolean",
+            "default": false,
+            "description": "Allows you to receive image results alongside text results in your search responses. When set to true, Linkup will return relevant images related to your query, each with a URL and metadata."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@LinkupPlatform/linkup-mcp-server",
+    "server_name": "linkup-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@parallel/search/web_search_preview",
+      "description": "Purpose: Perform web searches for a given objective and return results in an LLM-friendly format and with",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "objective": {
+            "type": "string",
+            "title": "Objective",
+            "description": "Natural-language description of what the web research goal\n is. Specify the broad intent of the search query here. Also include any source or\n freshness guidance here. Limit to 200 characters. This should reflect the end goal so\n that the tool can better understand the intent and return the best results. Do not\n dump long texts."
+          },
+          "search_type": {
+            "enum": [
+              "list",
+              "targeted",
+              "general",
+              "single_page"
+            ],
+            "type": "string",
+            "title": "Search Type",
+            "description": "Can be \"list\", \"general\", \"single_page\" or \"targeted\".\n \"list\" should be used for searching for data broadly, like aggregating data or\n considering multiple sources or doing broad initial research. \"targeted\" should be\n used for searching for data from a specific source set. \"general\" is a catch all case\n if there is no specific use case from list or targeted. \"single_page\" extracts data\n from a single page - extremely targeted. If there is a specific webpage you want the\n data from, use \"single_page\" and mention the URL in the objective.\n Use search_type appropriately."
+          },
+          "search_queries": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "title": "Search Queries",
+            "description": "(optional) List of keyword search queries of 1-6\n words, which may include search operators. The search queries should be related to the\n objective. Limited to 5 entries of 200 characters each. Usually 1-3 queries are\n ideal."
+          },
+          "include_domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "title": "Include Domains",
+            "default": [],
+            "description": "(optional) List of valid URL domains to explicitly\n focus on for the search. This will restrict all search results to only include results\n from the provided list. This is useful when you want to only use a specific set of\n sources. example: [\"google.com\", \"wikipedia.org\"]. Maximum 10 entries."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@parallel/search",
+    "server_name": "search"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "@Aas-ee/open-websearch/search",
+      "description": "Search the web using multiple engines (e.g., Baidu, Bing, DuckDuckGo, CSDN, Exa, Brave, Juejin(掘金)) with no API key required",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "number",
+            "default": 10,
+            "maximum": 50,
+            "minimum": 1
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1
+          },
+          "engines": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "baidu",
+                "bing",
+                "csdn",
+                "duckduckgo",
+                "exa",
+                "brave",
+                "juejin"
+              ],
+              "type": "string"
+            },
+            "default": [
+              "bing"
+            ],
+            "minItems": 1
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/@Aas-ee/open-websearch",
+    "server_name": "open-websearch"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "composio_search/COMPOSIO_SEARCH_SCHOLAR",
+      "description": "Scholar API allows you to scrape results from a Google Scholar search query. The ScholarSearch class performs an academic search using the Composio Scholar Search API, academic papers and scholarly articles. It uses the Google Scholar search engine through the SERP API to fetch relevant academic information based on the input query.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query",
+            "examples": [
+              "Machine Learning"
+            ],
+            "description": "The search query for the Composio Scholar Search API, specifying the academic topic or paper title."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/composio_search",
+    "server_name": "composio_search"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "alexcz-a11y/jina-httpstreamable/search_arxiv",
+      "description": "Search academic papers and preprints on arXiv repository. Perfect for finding research papers, scientific studies, technical papers, and academic literature. Use this when researching scientific topics, looking for papers by specific authors, or finding the latest research in fields like AI, physics, mathematics, computer science, etc.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "num": {
+            "type": "number",
+            "default": 30,
+            "description": "Maximum number of academic papers to return, between 1-100"
+          },
+          "tbs": {
+            "type": "string",
+            "description": "Time-based search parameter, e.g., 'qdr:h' for past hour, can be qdr:h, qdr:d, qdr:w, qdr:m, qdr:y"
+          },
+          "query": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ],
+            "description": "Academic search terms, author names, or research topics (e.g., 'transformer neural networks', 'Einstein relativity', 'machine learning optimization'). Can be a single query string or an array of queries for parallel search."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/alexcz-a11y/jina-httpstreamable",
+    "server_name": "jina-httpstreamable"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "alexcz-a11y/jina-httpstreamable/parallel_search_arxiv",
+      "description": "Run multiple arXiv searches in parallel for comprehensive research coverage and diverse academic angles. For best results, provide multiple search queries that explore different research angles and methodologies. You can use expand_query to help generate diverse queries, or create them yourself.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "timeout": {
+            "type": "number",
+            "default": 30000,
+            "description": "Timeout in milliseconds for all searches"
+          },
+          "searches": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "query"
+              ],
+              "properties": {
+                "num": {
+                  "type": "number",
+                  "default": 30,
+                  "description": "Maximum number of academic papers to return, between 1-100"
+                },
+                "tbs": {
+                  "type": "string",
+                  "description": "Time-based search parameter, e.g., 'qdr:h' for past hour"
+                },
+                "query": {
+                  "type": "string",
+                  "description": "Academic search terms, author names, or research topics"
+                }
+              },
+              "additionalProperties": false
+            },
+            "maxItems": 5,
+            "description": "Array of arXiv search configurations to execute in parallel (maximum 5 searches for optimal performance)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/alexcz-a11y/jina-httpstreamable",
+    "server_name": "jina-httpstreamable"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "TitanSneaker/paper-search-mcp-openai-v2/search",
+      "description": "Deep Research compatible search tool aggregating across sources.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 15
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/TitanSneaker/paper-search-mcp-openai-v2",
+    "server_name": "paper-search-mcp-openai-v2"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getQuote",
+      "description": "Access real-time stock quotes with the FMP Stock Quote API. Get up-to-the-minute prices, changes, and volume data for individual stocks.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getQuoteShort",
+      "description": "Get quick snapshots of real-time stock quotes with the FMP Stock Quote Short API. Access key stock data like current price, volume, and price changes for instant market insights.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getAftermarketQuote",
+      "description": "Access real-time aftermarket quotes for stocks with the FMP Aftermarket Quote API. Track bid and ask prices, volume, and other relevant data outside of regular trading hours.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getStockPriceChange",
+      "description": "Track stock price fluctuations in real-time with the FMP Stock Price Change API. Monitor percentage and value changes over various time periods, including daily, weekly, monthly, and long-term.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "sendMail",
+      "description": "Send an email message via the configured mail account. Specify the recipient address, subject line, and message body. Use this tool when the user explicitly asks to send, deliver, or compose an email.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string"
+          },
+          "cc": {
+            "type": "string"
+          },
+          "bcc": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "html": {
+            "type": "string"
+          },
+          "useHtml": {
+            "type": "string"
+          },
+          "attachments": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "to",
+          "subject"
+        ]
+      }
+    }
+  }
+]

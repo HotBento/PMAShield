@@ -1,0 +1,186 @@
+[
+  {
+    "name": "exa/web_search_exa",
+    "description": "Search the web using Exa AI - performs real-time web searches and can scrape content from specific URLs. Supports configurable result counts and returns the content from the most relevant websites."
+  },
+  {
+    "name": "@LinkupPlatform/linkup-mcp-server/linkup-search",
+    "description": "Search the web in real time using Linkup to retrieve current information, facts, and news from trusted sources. Use this tool for: real-time data (weather, stocks, sports scores, events), breaking news, current events, recent research, product information, up-to-date prices, schedules, and any information not available in your knowledge base. Returns comprehensive content from the most relevant sources."
+  },
+  {
+    "name": "@parallel/search/web_search_preview",
+    "description": "Purpose: Perform web searches for a given objective and return results in an LLM-friendly format and with"
+  },
+  {
+    "name": "@Aas-ee/open-websearch/search",
+    "description": "Search the web using multiple engines (e.g., Baidu, Bing, DuckDuckGo, CSDN, Exa, Brave, Juejin(掘金)) with no API key required"
+  },
+  {
+    "name": "@JigsawStack/ai-web-search/web-search",
+    "description": "Search the web"
+  },
+  {
+    "name": "@OEvortex/ddg_search/web-search",
+    "description": "Search the web using DuckDuckGo and return comprehensive results with titles, URLs, and snippets"
+  },
+  {
+    "name": "@OEvortex/ddg_search/felo-search",
+    "description": "Advanced AI-powered web search for technical intelligence. Retrieves up-to-date information including software releases, security advisories, migration guides, benchmarks, developer documentation, and community insights. Supports both standard and streaming responses."
+  },
+  {
+    "name": "composio_search/COMPOSIO_SEARCH_DUCK_DUCK_GO",
+    "description": "The DuckDuckGoSearch class utilizes the Composio DuckDuckGo Search API to perform searches, focusing on web information and details. It leverages the DuckDuckGo search engine via the Composio DuckDuckGo Search API to retrieve relevant web data based on the provided query."
+  },
+  {
+    "name": "composio_search/COMPOSIO_SEARCH_EXA_ANSWER",
+    "description": "Get answers with citations using the Exa API. DEPRECATED: Use COMPOSIO_SEARCH_WEB instead."
+  },
+  {
+    "name": "composio_search/COMPOSIO_SEARCH_TAVILY",
+    "description": "The Composio LLM Search class serves as a gateway to the Composio LLM Search API, allowing users to perform searches across a broad range of content with multiple filtering options. It accommodates complex queries, including both keyword and phrase searches, with additional"
+  },
+  {
+    "name": "composio_search/COMPOSIO_SEARCH_WEB",
+    "description": "Perform general web searches and find relevant information. This tool searches the web for information on any topic. Perfect for research, fact-checking, finding websites, and gathering general information. Returns search results with titles, snippets, URLs, and relevant web pages."
+  },
+  {
+    "name": "@pinkpixel-dev/web-scout-mcp/DuckDuckGoWebSearch",
+    "description": "Initiates a web search query using the DuckDuckGo search engine and returns a well-structured list of findings. Input the keywords, question, or topic you want to search for using DuckDuckGo as your query. Input the maximum number of search entries you'd like to receive using maxResults - defaults to 10 if not provided."
+  },
+  {
+    "name": "@guptabhishek/multi-search-mcp/search",
+    "description": "Performs a web search using multiple providers (google, tavily, duckduckgo, brave)."
+  },
+  {
+    "name": "@alexcz-a11y/jina-httpstreamable/search_web",
+    "description": "Search the entire web for current information, news, articles, and websites. Use this when you need up-to-date information, want to find specific websites, research topics, or get the latest news. Ideal for answering questions about recent events, finding resources, or discovering relevant content."
+  },
+  {
+    "name": "@alexcz-a11y/jina-httpstreamable/parallel_search_web",
+    "description": "Run multiple web searches in parallel for comprehensive topic coverage and diverse perspectives. For best results, provide multiple search queries that explore different aspects of your topic. You can use expand_query to help generate diverse queries, or create them yourself."
+  },
+  {
+    "name": "brightdata/search_engine_batch",
+    "description": "Run multiple search queries simultaneously. Returns JSON for Google, Markdown for Bing/Yandex."
+  },
+  {
+    "name": "@AgentWings/exa-mcp-server/web_search_exa",
+    "description": "Search the web using Exa AI - performs real-time web searches and can scrape content from specific URLs. Supports configurable result counts and returns the content from the most relevant websites."
+  },
+  {
+    "name": "@ScrapeGraphAI/scrapegraph-mcp/searchscraper",
+    "description": "Perform AI-powered web searches with structured data extraction. This tool searches the web based on your query and uses AI to extract structured information from the search results. Ideal for research, competitive analysis, and gathering information from multiple sources. Each website searched costs 10 credits (default 3 websites = 30 credits). Read-only operation but results may vary over time (non-idempotent). Args: user_prompt (str): Search query or natural language instructions for information to find. - Can be a simple search query or detailed extraction instructions - The AI will search the web and extract relevant data from found pages - Be specific about what information you want extracted - Examples: * \"Find latest AI research papers published in 2024 with author names and abstracts\" * \"Search for Python web scraping tutorials with ratings and difficulty levels\" * \"Get current cryptocurrency prices and market caps for top 10 coins\" * \"Find contact information for tech startups in San Francisco\" * \"Search for job openings for data scientists with salary information\" - Tips for better results: * Include specific fields you want extracted * Mention timeframes or filters (e.g., \"latest\", \"2024\", \"top 10\") * Specify data types needed (prices, dates, ratings, etc.) num_results (Optional[int]): Number of websites to search and extract data from. - Default: 3 websites (costs 30 credits total) - Range: 1-20 websites (recommended to stay under 10 for cost efficiency) - Each website costs 10 credits, so total cost = num_results × 10 - Examples: * 1: Quick single-source lookup (10 credits) * 3: Standard research (30 credits) - good balance of coverage and cost * 5: Comprehensive research (50 credits) * 10: Extensive analysis (100 credits) - Note: More results provide broader coverage but increase costs and processing time number_of_scrolls (Optional[int]): Number of infinite scrolls per searched webpage. - Default: 0 (no scrolling on search result pages) - Range: 0-10 scrolls per page - Useful when search results point to pages with dynamic content loading - Each scroll waits for content to load before continuing - Examples: * 0: Static content pages, news articles, documentation * 2: Social media pages, product listings with lazy loading * 5: Extensive feeds, long-form content with infinite scroll - Note: Increases processing time significantly (adds 5-10 seconds per scroll per page) Returns: Dictionary containing: - search_results: Array of extracted data from each website found - sources: List of URLs that were searched and processed - total_websites_processed: Number of websites successfully analyzed - credits_used: Total credits consumed (num_results × 10) - processing_time: Total time taken for search and extraction - search_query_used: The actual search query sent to search engines - metadata: Additional information about the search process Raises: ValueError: If user_prompt is empty or num_results is out of range HTTPError: If search engines are unavailable or return errors TimeoutError: If search or extraction process exceeds timeout limits RateLimitError: If too many requests are made in a short time period Note: - Results may vary between calls due to changing web content (non-idempotent) - Search engines may return different results over time - Some websites may be inaccessible or block automated access - Processing time increases with num_results and number_of_scrolls - Consider using smartscraper on specific URLs if you know the target sites"
+  },
+  {
+    "name": "@Desearch-ai/desearch/ai-search",
+    "description": "Real-time AI search and analysis on web using Desearch AI"
+  },
+  {
+    "name": "@marcopesani/mcp-server-serper/google_search",
+    "description": "Tool to perform web searches via Serper API and retrieve rich results. It is able to retrieve organic search results, people also ask, related searches, and knowledge graph."
+  },
+  {
+    "name": "xiaobenyang-com/smart-search/ai_search_web",
+    "description": "🔍 网络搜索 - 通用网络搜索（Google/Bing/百度/搜狗） 【重要】此工具会返回搜索URL，Claude Code应该使用WebFetch工具访问该URL以获取真实搜索结果。"
+  },
+  {
+    "name": "@tavily-ai/tavily-mcp/tavily-search",
+    "description": "A powerful web search tool that provides comprehensive, real-time results using Tavily's AI search engine. Returns relevant web content with customizable"
+  },
+  {
+    "name": "@IAmAlexander/readwise-mcp/search_highlights",
+    "description": "Search for highlights in your Readwise library"
+  },
+  {
+    "name": "jina-ai-mcp-server/search_web",
+    "description": "Search the web using Jina AI's search API"
+  },
+  {
+    "name": "@mnhlt/WebSearch-MCP/web_search",
+    "description": "Search the web for information. Use this tool when you need to search the web for information. You can use this tool to search for news, blogs, or all types of information. You can also use this tool to search for information about a specific company or product. You can also use this tool to search for information about a specific person. You can also use this tool to search for information about a specific product. You can also use this tool to search for information about a specific company. You can also use this tool to search for information about a specific event. You can also use this tool to search for information about a specific location. You can also use this tool to search for information about a specific thing. If you request search with 1 result number and failed, retry with bigger results number."
+  },
+  {
+    "name": "@rashforddamion/rivalsearch/google_search",
+    "description": "Advanced Google Search with Cloudflare bypass, rich snippets detection, and multi-engine fallback"
+  },
+  {
+    "name": "@MrunmayS/exa-mcp-server/search",
+    "description": "Search the web using Exa AI"
+  },
+  {
+    "name": "xiaobenyang-com/bingcn/bing_search",
+    "description": "使用必应搜索指定的关键词，并返回搜索结果列表，包括标题、链接、摘要和ID"
+  },
+  {
+    "name": "arjunkmrm/perplexity-search/search",
+    "description": "Perform a web search using Perplexity's API, which provides detailed and contextually relevant results with citations. By default, no time filtering is applied to search results."
+  },
+  {
+    "name": "@Jeetanshu18/tavily-mcp/tavily-search",
+    "description": "A powerful web search tool that provides comprehensive, real-time results using Tavily's AI search engine. Returns relevant web content with customizable"
+  },
+  {
+    "name": "@jackedelic/exa-mcp-server/web_search_exa",
+    "description": "Search the web using Exa AI - performs real-time web searches and can scrape content from specific URLs. Supports configurable result counts and returns the content from the most relevant websites."
+  },
+  {
+    "name": "@hyperbrowserai/mcp/search_with_bing",
+    "description": "Search the web using Bing. This tool allows you to search the web using bing.com"
+  },
+  {
+    "name": "@tahaswx/mcp-server-serper-test/google_search",
+    "description": "Tool to perform web searches via Serper API and retrieve rich results. It is able to retrieve organic search results, people also ask, related searches, and knowledge graph."
+  },
+  {
+    "name": "@diegofornalha/mcp-server-serper/google_search",
+    "description": "Ferramenta para realizar buscas na web via API Serper e recuperar resultados completos. Capaz de recuperar resultados orgânicos de busca, pessoas também perguntam, buscas relacionadas e gráfico de conhecimento."
+  },
+  {
+    "name": "@JonyanDunh/brave-search-mcp/brave_web_search",
+    "description": "Performs a web search using the Brave Search API, ideal for general queries, and online content. Use this for broad information gathering, recent events, or when you need diverse web sources. Maximum 20 results per request"
+  },
+  {
+    "name": "@mikechao/brave-search-mcp/brave_web_search",
+    "description": "Performs a web search using the Brave Search API, ideal for general queries, and online content. Use this for broad information gathering, recent events, or when you need diverse web sources. Maximum 20 results per request"
+  },
+  {
+    "name": "@aditya002p/mcp-server/web_search_exa",
+    "description": "Search the web using Exa AI - performs real-time web searches and can scrape content from specific URLs. Supports configurable result counts and returns the content from the most relevant websites."
+  },
+  {
+    "name": "@avac22/tavily-mcp/tavily-search",
+    "description": "A powerful web search tool that provides comprehensive, real-time results using Tavily's AI search engine. Returns relevant web content with customizable"
+  },
+  {
+    "name": "@MeirKaD/mcp-sse-test3/search_engine_batch",
+    "description": "Run multiple search queries simultaneously. Returns JSON for Google, Markdown for Bing/Yandex."
+  },
+  {
+    "name": "@dronreef2/mcpserve/search",
+    "description": "Pesquisa inteligente na web usando Jina AI com resultados contextualizados"
+  },
+  {
+    "name": "@dronreef2/enhanced-mcp-server/search",
+    "description": "Pesquisa inteligente na web usando Jina AI com resultados contextualizados"
+  },
+  {
+    "name": "@Rz017/tavily-mcp/tavily-search",
+    "description": "A powerful web search tool that provides comprehensive, real-time results using Tavily's AI search engine. Returns relevant web content with customizable"
+  },
+  {
+    "name": "@StevenFengLi/tavily-mcp/tavily-search",
+    "description": "A powerful web search tool that provides comprehensive, real-time results using Tavily's AI search engine. Returns relevant web content with customizable"
+  },
+  {
+    "name": "@geezerrrr/exa-mcp-server-1/search",
+    "description": "Search the web using Exa AI - performs real-time web searches and can scrape content from specific URLs. Supports configurable result counts, live crawling options, and returns the content from the most relevant websites."
+  },
+  {
+    "name": "@meicanhong/exa-mcp-server/web_search",
+    "description": "Search the web using Exa AI - performs real-time web searches and can scrape content from specific URLs. Supports configurable result counts and returns the content from the most relevant websites."
+  },
+  {
+    "name": "@horizondatawave/hdw-mcp-server/google_search",
+    "description": "Perform Google search"
+  }
+]

@@ -1,0 +1,647 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "composio_search/COMPOSIO_SEARCH_SCHOLAR",
+      "description": "Scholar API allows you to scrape results from a Google Scholar search query. The ScholarSearch class performs an academic search using the Composio Scholar Search API, academic papers and scholarly articles. It uses the Google Scholar search engine through the SERP API to fetch relevant academic information based on the input query.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query",
+            "examples": [
+              "Machine Learning"
+            ],
+            "description": "The search query for the Composio Scholar Search API, specifying the academic topic or paper title."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/composio_search",
+    "server_name": "composio_search"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "alexcz-a11y/jina-httpstreamable/search_arxiv",
+      "description": "Search academic papers and preprints on arXiv repository. Perfect for finding research papers, scientific studies, technical papers, and academic literature. Use this when researching scientific topics, looking for papers by specific authors, or finding the latest research in fields like AI, physics, mathematics, computer science, etc.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "num": {
+            "type": "number",
+            "default": 30,
+            "description": "Maximum number of academic papers to return, between 1-100"
+          },
+          "tbs": {
+            "type": "string",
+            "description": "Time-based search parameter, e.g., 'qdr:h' for past hour, can be qdr:h, qdr:d, qdr:w, qdr:m, qdr:y"
+          },
+          "query": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ],
+            "description": "Academic search terms, author names, or research topics (e.g., 'transformer neural networks', 'Einstein relativity', 'machine learning optimization'). Can be a single query string or an array of queries for parallel search."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/alexcz-a11y/jina-httpstreamable",
+    "server_name": "jina-httpstreamable"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "alexcz-a11y/jina-httpstreamable/parallel_search_arxiv",
+      "description": "Run multiple arXiv searches in parallel for comprehensive research coverage and diverse academic angles. For best results, provide multiple search queries that explore different research angles and methodologies. You can use expand_query to help generate diverse queries, or create them yourself.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "timeout": {
+            "type": "number",
+            "default": 30000,
+            "description": "Timeout in milliseconds for all searches"
+          },
+          "searches": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "query"
+              ],
+              "properties": {
+                "num": {
+                  "type": "number",
+                  "default": 30,
+                  "description": "Maximum number of academic papers to return, between 1-100"
+                },
+                "tbs": {
+                  "type": "string",
+                  "description": "Time-based search parameter, e.g., 'qdr:h' for past hour"
+                },
+                "query": {
+                  "type": "string",
+                  "description": "Academic search terms, author names, or research topics"
+                }
+              },
+              "additionalProperties": false
+            },
+            "maxItems": 5,
+            "description": "Array of arXiv search configurations to execute in parallel (maximum 5 searches for optimal performance)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/alexcz-a11y/jina-httpstreamable",
+    "server_name": "jina-httpstreamable"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "TitanSneaker/paper-search-mcp-openai-v2/search",
+      "description": "Deep Research compatible search tool aggregating across sources.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 15
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/TitanSneaker/paper-search-mcp-openai-v2",
+    "server_name": "paper-search-mcp-openai-v2"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "TitanSneaker/paper-search-mcp-openai-v2/search_arxiv",
+      "description": "Search academic papers from arXiv. Args: query: Search query string (e.g., 'machine learning'). max_results: Maximum number of papers to return (default: 10). Returns: List of paper metadata in dictionary format.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 10
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/TitanSneaker/paper-search-mcp-openai-v2",
+    "server_name": "paper-search-mcp-openai-v2"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "TitanSneaker/paper-search-mcp-openai-v2/search_pubmed",
+      "description": "Search academic papers from PubMed. Args: query: Search query string (e.g., 'machine learning'). max_results: Maximum number of papers to return (default: 10). Returns: List of paper metadata in dictionary format.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 10
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/TitanSneaker/paper-search-mcp-openai-v2",
+    "server_name": "paper-search-mcp-openai-v2"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "TitanSneaker/paper-search-mcp-openai-v2/search_biorxiv",
+      "description": "Search academic papers from bioRxiv. Args: query: Search query string (e.g., 'machine learning'). max_results: Maximum number of papers to return (default: 10). Returns: List of paper metadata in dictionary format.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 10
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/TitanSneaker/paper-search-mcp-openai-v2",
+    "server_name": "paper-search-mcp-openai-v2"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "TitanSneaker/paper-search-mcp-openai-v2/search_medrxiv",
+      "description": "Search academic papers from medRxiv. Args: query: Search query string (e.g., 'machine learning'). max_results: Maximum number of papers to return (default: 10). Returns: List of paper metadata in dictionary format.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 10
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/TitanSneaker/paper-search-mcp-openai-v2",
+    "server_name": "paper-search-mcp-openai-v2"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "TitanSneaker/paper-search-mcp-openai-v2/search_google_scholar",
+      "description": "Search academic papers from Google Scholar. Args: query: Search query string (e.g., 'machine learning'). max_results: Maximum number of papers to return (default: 10). Returns: List of paper metadata in dictionary format.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 10
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/TitanSneaker/paper-search-mcp-openai-v2",
+    "server_name": "paper-search-mcp-openai-v2"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "TitanSneaker/paper-search-mcp-openai-v2/search_iacr",
+      "description": "Search academic papers from IACR ePrint Archive. Args: query: Search query string (e.g., 'cryptography', 'secret sharing'). max_results: Maximum number of papers to return (default: 10). fetch_details: Whether to fetch detailed information for each paper (default: True). Returns: List of paper metadata in dictionary format.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 10
+          },
+          "fetch_details": {
+            "type": "boolean",
+            "title": "Fetch Details",
+            "default": true
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/TitanSneaker/paper-search-mcp-openai-v2",
+    "server_name": "paper-search-mcp-openai-v2"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "TitanSneaker/paper-search-mcp-openai-v2/search_semantic",
+      "description": "Search academic papers from Semantic Scholar. Args: query: Search query string (e.g., 'machine learning'). year: Optional year filter (e.g., '2019', '2016-2020', '2010-', '-2015'). max_results: Maximum number of papers to return (default: 10). Returns: List of paper metadata in dictionary format.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "year": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year",
+            "default": null
+          },
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 10
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/TitanSneaker/paper-search-mcp-openai-v2",
+    "server_name": "paper-search-mcp-openai-v2"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "TitanSneaker/paper-search-mcp-openai-v2/search_crossref",
+      "description": "Search academic papers from CrossRef database. CrossRef is a scholarly infrastructure organization that provides persistent identifiers (DOIs) for scholarly content and metadata. It's one of the largest citation databases covering millions of academic papers, journals, books, and other scholarly content. Args: query: Search query string (e.g., 'machine learning', 'climate change'). max_results: Maximum number of papers to return (default: 10, max: 1000). **kwargs: Additional search",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "kwargs": {
+            "type": "string",
+            "title": "kwargs"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 10
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/TitanSneaker/paper-search-mcp-openai-v2",
+    "server_name": "paper-search-mcp-openai-v2"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "adamamer20/paper-search-mcp-openai/search",
+      "description": "Deep Research compatible search tool aggregating across sources.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 15
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/adamamer20/paper-search-mcp-openai",
+    "server_name": "paper-search-mcp-openai"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "adamamer20/paper-search-mcp-openai/search_arxiv",
+      "description": "Search academic papers from arXiv. Args: query: Search query string (e.g., 'machine learning'). max_results: Maximum number of papers to return (default: 10). Returns: List of paper metadata in dictionary format.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 10
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/adamamer20/paper-search-mcp-openai",
+    "server_name": "paper-search-mcp-openai"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "adamamer20/paper-search-mcp-openai/search_pubmed",
+      "description": "Search academic papers from PubMed. Args: query: Search query string (e.g., 'machine learning'). max_results: Maximum number of papers to return (default: 10). Returns: List of paper metadata in dictionary format.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 10
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/adamamer20/paper-search-mcp-openai",
+    "server_name": "paper-search-mcp-openai"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "adamamer20/paper-search-mcp-openai/search_biorxiv",
+      "description": "Search academic papers from bioRxiv. Args: query: Search query string (e.g., 'machine learning'). max_results: Maximum number of papers to return (default: 10). Returns: List of paper metadata in dictionary format.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 10
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/adamamer20/paper-search-mcp-openai",
+    "server_name": "paper-search-mcp-openai"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "adamamer20/paper-search-mcp-openai/search_medrxiv",
+      "description": "Search academic papers from medRxiv. Args: query: Search query string (e.g., 'machine learning'). max_results: Maximum number of papers to return (default: 10). Returns: List of paper metadata in dictionary format.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 10
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/adamamer20/paper-search-mcp-openai",
+    "server_name": "paper-search-mcp-openai"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "adamamer20/paper-search-mcp-openai/search_google_scholar",
+      "description": "Search academic papers from Google Scholar. Args: query: Search query string (e.g., 'machine learning'). max_results: Maximum number of papers to return (default: 10). Returns: List of paper metadata in dictionary format.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 10
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/adamamer20/paper-search-mcp-openai",
+    "server_name": "paper-search-mcp-openai"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "adamamer20/paper-search-mcp-openai/search_iacr",
+      "description": "Search academic papers from IACR ePrint Archive. Args: query: Search query string (e.g., 'cryptography', 'secret sharing'). max_results: Maximum number of papers to return (default: 10). fetch_details: Whether to fetch detailed information for each paper (default: True). Returns: List of paper metadata in dictionary format.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 10
+          },
+          "fetch_details": {
+            "type": "boolean",
+            "title": "Fetch Details",
+            "default": true
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/adamamer20/paper-search-mcp-openai",
+    "server_name": "paper-search-mcp-openai"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "adamamer20/paper-search-mcp-openai/search_semantic",
+      "description": "Search academic papers from Semantic Scholar. Args: query: Search query string (e.g., 'machine learning'). year: Optional year filter (e.g., '2019', '2016-2020', '2010-', '-2015'). max_results: Maximum number of papers to return (default: 10). Returns: List of paper metadata in dictionary format.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "year": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Year",
+            "default": null
+          },
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 10
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/adamamer20/paper-search-mcp-openai",
+    "server_name": "paper-search-mcp-openai"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "adamamer20/paper-search-mcp-openai/search_crossref",
+      "description": "Search academic papers from CrossRef database. CrossRef is a scholarly infrastructure organization that provides persistent identifiers (DOIs) for scholarly content and metadata. It's one of the largest citation databases covering millions of academic papers, journals, books, and other scholarly content. Args: query: Search query string (e.g., 'machine learning', 'climate change'). max_results: Maximum number of papers to return (default: 10, max: 1000). **kwargs: Additional search",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "kwargs": {
+            "type": "string",
+            "title": "kwargs"
+          },
+          "max_results": {
+            "type": "integer",
+            "title": "Max Results",
+            "default": 10
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/adamamer20/paper-search-mcp-openai",
+    "server_name": "paper-search-mcp-openai"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "Turf-Tech/turf-mcp-server/google_scholar_search_server",
+      "description": "Provide academic paper search capabilities by querying Google Scholar through a standardized MCP interface. Enable real-time streaming of search results and support multi-session interactions for seamless integration with AI models.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/Turf-Tech/turf-mcp-server",
+    "server_name": "turf-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "Turf-Tech/turf-mcp-server/ai_research_assistant",
+      "description": "The server provides immediate access to millions of academic papers through Semantic Scholar and arXiv, enabling AI-powered research with comprehensive search, citation analysis, and full-text PDF extraction from multiple sources (arXiv and Wiley open-access)",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/Turf-Tech/turf-mcp-server",
+    "server_name": "turf-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "jackedelic/exa-mcp-server/research_paper_search",
+      "description": "Search across 100M+ research papers with full text access using Exa AI - performs targeted academic paper searches with deep research content coverage. Returns detailed information about relevant academic papers including titles, authors, publication dates, and full text excerpts. Control the number of results and character counts returned to balance comprehensiveness with conciseness based on your task requirements.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Research topic or keyword to search for"
+          },
+          "numResults": {
+            "type": "number",
+            "description": "Number of research papers to return (default: 5)"
+          },
+          "maxCharacters": {
+            "type": "number",
+            "description": "Maximum number of characters to return for each result's text content (Default: 3000)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/jackedelic/exa-mcp-server",
+    "server_name": "exa-mcp-server"
+  }
+]

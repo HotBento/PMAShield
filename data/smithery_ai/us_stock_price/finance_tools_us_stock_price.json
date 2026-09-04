@@ -1,0 +1,1704 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getLightChart",
+      "description": "Access simplified stock chart data using the FMP Basic Stock Chart API. This API provides essential charting information, including date, price, and trading volume, making it ideal for tracking stock performance with minimal data and creating basic price and volume charts.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getFullChart",
+      "description": "Access full price and volume data for any stock symbol using the FMP Comprehensive Stock Price and Volume Data API. Get detailed insights, including open, high, low, close prices, trading volume, price changes, percentage changes, and volume-weighted average price (VWAP).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getUnadjustedChart",
+      "description": "Access stock price and volume data without adjustments for stock splits with the FMP Unadjusted Stock Price Chart API. Get accurate insights into stock performance, including open, high, low, and close prices, along with trading volume, without split-related changes.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getDividendAdjustedChart",
+      "description": "Analyze stock performance with dividend adjustments using the FMP Dividend-Adjusted Price Chart API. Access end-of-day price and volume data that accounts for dividend payouts, offering a more comprehensive view of stock trends over time.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getIntradayChart",
+      "description": "Access precise intraday stock price and volume data with the FMP Interval Stock Chart API. Retrieve real-time or historical stock data in intervals, including key information such as open, high, low, and close prices, and trading volume for each minute.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          },
+          "interval": {
+            "enum": [
+              "1min",
+              "5min",
+              "15min",
+              "30min",
+              "1hour",
+              "4hour"
+            ],
+            "type": "string",
+            "description": "Time interval"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getIndexQuote",
+      "description": "Access real-time stock index quotes with the Stock Index Quote API. Stay updated with the latest price changes, daily highs and lows, volume, and other key metrics for major stock indices around the world.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Index symbol (e.g., ^GSPC for S&P 500)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getIndexShortQuote",
+      "description": "Access concise stock index quotes with the Stock Index Short Quote API. This API provides a snapshot of the current price, change, and volume for stock indexes, making it ideal for users who need a quick overview of market movements.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Index symbol (e.g., ^GSPC for S&P 500)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getAllIndexQuotes",
+      "description": "The All Index Quotes API provides real-time quotes for a wide range of stock indexes, from major market benchmarks to niche indexes. This API allows users to track market performance across multiple indexes in a single request, giving them a broad view of the financial markets.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "short": {
+            "type": "boolean",
+            "description": "Whether to return short quotes (default: false)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getHistoricalIndexLightChart",
+      "description": "Retrieve end-of-day historical prices for stock indexes using the Historical Price Data API. This API provides essential data such as date, price, and volume, enabling detailed analysis of price movements over time.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Index symbol (e.g., ^GSPC for S&P 500)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getHistoricalIndexFullChart",
+      "description": "Access full historical end-of-day prices for stock indexes using the Detailed Historical Price Data API. This API provides comprehensive information, including open, high, low, close prices, volume, and additional metrics for detailed financial analysis.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Index symbol (e.g., ^GSPC for S&P 500)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getIndex1MinuteData",
+      "description": "Retrieve 1-minute interval intraday data for stock indexes using the Intraday 1-Minute Price Data API. This API provides granular price information, helping users track short-term price movements and trading volume within each minute.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Index symbol (e.g., ^GSPC for S&P 500)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getIndex5MinuteData",
+      "description": "Retrieve 5-minute interval intraday price data for stock indexes using the Intraday 5-Minute Price Data API. This API provides crucial insights into price movements and trading volume within 5-minute windows, ideal for traders who require short-term data.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Index symbol (e.g., ^GSPC for S&P 500)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getIndex1HourData",
+      "description": "Access 1-hour interval intraday data for stock indexes using the Intraday 1-Hour Price Data API. This API provides detailed price movements and volume within hourly intervals, making it ideal for tracking medium-term market trends during the trading day.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Index symbol (e.g., ^GSPC for S&P 500)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getQuote",
+      "description": "Access real-time stock quotes with the FMP Stock Quote API. Get up-to-the-minute prices, changes, and volume data for individual stocks.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getQuoteShort",
+      "description": "Get quick snapshots of real-time stock quotes with the FMP Stock Quote Short API. Access key stock data like current price, volume, and price changes for instant market insights.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getAftermarketQuote",
+      "description": "Access real-time aftermarket quotes for stocks with the FMP Aftermarket Quote API. Track bid and ask prices, volume, and other relevant data outside of regular trading hours.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getStockPriceChange",
+      "description": "Track stock price fluctuations in real-time with the FMP Stock Price Change API. Monitor percentage and value changes over various time periods, including daily, weekly, monthly, and long-term.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getBatchQuotes",
+      "description": "Retrieve multiple real-time stock quotes in a single request with the FMP Stock Batch Quote API. Access current prices, volume, and detailed data for multiple companies at once, making it easier to track large portfolios or monitor multiple stocks simultaneously.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbols": {
+            "type": "string",
+            "description": "Comma-separated list of stock symbols"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getBatchQuotesShort",
+      "description": "Access real-time, short-form quotes for multiple stocks with the FMP Stock Batch Quote Short API. Get a quick snapshot of key stock data such as current price, change, and volume for several companies in one streamlined request.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbols": {
+            "type": "string",
+            "description": "Comma-separated list of stock symbols"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getBatchAftermarketQuote",
+      "description": "Retrieve real-time aftermarket quotes for multiple stocks with the FMP Batch Aftermarket Quote API. Access bid and ask prices, volume, and other relevant data for several companies during post-market trading.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbols": {
+            "type": "string",
+            "description": "Comma-separated list of stock symbols"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getExchangeQuotes",
+      "description": "Retrieve real-time stock quotes for all listed stocks on a specific exchange with the FMP Exchange Stock Quotes API. Track price changes and trading activity across the entire exchange.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "short": {
+            "type": "boolean",
+            "description": "Whether to use short format"
+          },
+          "exchange": {
+            "type": "string",
+            "description": "Exchange name (e.g., NASDAQ, NYSE)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getMutualFundQuotes",
+      "description": "Access real-time quotes for mutual funds with the FMP Mutual Fund Price Quotes API. Track current prices, performance changes, and key data for various mutual funds.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "short": {
+            "type": "boolean",
+            "description": "Whether to use short format"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getETFQuotes",
+      "description": "Get real-time price quotes for exchange-traded funds (ETFs) with the FMP ETF Price Quotes API. Track current prices, performance changes, and key data for a wide variety of ETFs.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "short": {
+            "type": "boolean",
+            "description": "Whether to use short format"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getIndexQuotes",
+      "description": "Track real-time movements of major stock market indexes with the FMP Stock Market Index Quotes API. Access live quotes for global indexes and monitor changes in their performance.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "short": {
+            "type": "boolean",
+            "description": "Whether to use short format"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "cfocoder/financial-modeling-prep-mcp-server/getEODDataBulk",
+      "description": "The EOD Bulk API allows users to retrieve end-of-day stock price data for multiple symbols in bulk. This API is ideal for financial analysts, traders, and investors who need to assess valuations for a large number of companies.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "Date in YYYY-MM-DD format"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/cfocoder/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getLightChart",
+      "description": "Access simplified stock chart data using the FMP Basic Stock Chart API. This API provides essential charting information, including date, price, and trading volume, making it ideal for tracking stock performance with minimal data and creating basic price and volume charts.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getFullChart",
+      "description": "Access full price and volume data for any stock symbol using the FMP Comprehensive Stock Price and Volume Data API. Get detailed insights, including open, high, low, close prices, trading volume, price changes, percentage changes, and volume-weighted average price (VWAP).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getUnadjustedChart",
+      "description": "Access stock price and volume data without adjustments for stock splits with the FMP Unadjusted Stock Price Chart API. Get accurate insights into stock performance, including open, high, low, and close prices, along with trading volume, without split-related changes.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getDividendAdjustedChart",
+      "description": "Analyze stock performance with dividend adjustments using the FMP Dividend-Adjusted Price Chart API. Access end-of-day price and volume data that accounts for dividend payouts, offering a more comprehensive view of stock trends over time.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getIntradayChart",
+      "description": "Access precise intraday stock price and volume data with the FMP Interval Stock Chart API. Retrieve real-time or historical stock data in intervals, including key information such as open, high, low, and close prices, and trading volume for each minute.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          },
+          "interval": {
+            "enum": [
+              "1min",
+              "5min",
+              "15min",
+              "30min",
+              "1hour",
+              "4hour"
+            ],
+            "type": "string",
+            "description": "Time interval"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getIndexQuote",
+      "description": "Access real-time stock index quotes with the Stock Index Quote API. Stay updated with the latest price changes, daily highs and lows, volume, and other key metrics for major stock indices around the world.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Index symbol (e.g., ^GSPC for S&P 500)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getIndexShortQuote",
+      "description": "Access concise stock index quotes with the Stock Index Short Quote API. This API provides a snapshot of the current price, change, and volume for stock indexes, making it ideal for users who need a quick overview of market movements.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Index symbol (e.g., ^GSPC for S&P 500)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getAllIndexQuotes",
+      "description": "The All Index Quotes API provides real-time quotes for a wide range of stock indexes, from major market benchmarks to niche indexes. This API allows users to track market performance across multiple indexes in a single request, giving them a broad view of the financial markets.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "short": {
+            "type": "boolean",
+            "description": "Whether to return short quotes (default: false)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getHistoricalIndexLightChart",
+      "description": "Retrieve end-of-day historical prices for stock indexes using the Historical Price Data API. This API provides essential data such as date, price, and volume, enabling detailed analysis of price movements over time.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Index symbol (e.g., ^GSPC for S&P 500)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getHistoricalIndexFullChart",
+      "description": "Access full historical end-of-day prices for stock indexes using the Detailed Historical Price Data API. This API provides comprehensive information, including open, high, low, close prices, volume, and additional metrics for detailed financial analysis.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Index symbol (e.g., ^GSPC for S&P 500)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getIndex1MinuteData",
+      "description": "Retrieve 1-minute interval intraday data for stock indexes using the Intraday 1-Minute Price Data API. This API provides granular price information, helping users track short-term price movements and trading volume within each minute.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Index symbol (e.g., ^GSPC for S&P 500)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getIndex5MinuteData",
+      "description": "Retrieve 5-minute interval intraday price data for stock indexes using the Intraday 5-Minute Price Data API. This API provides crucial insights into price movements and trading volume within 5-minute windows, ideal for traders who require short-term data.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Index symbol (e.g., ^GSPC for S&P 500)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getIndex1HourData",
+      "description": "Access 1-hour interval intraday data for stock indexes using the Intraday 1-Hour Price Data API. This API provides detailed price movements and volume within hourly intervals, making it ideal for tracking medium-term market trends during the trading day.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "from": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "symbol": {
+            "type": "string",
+            "description": "Index symbol (e.g., ^GSPC for S&P 500)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getQuote",
+      "description": "Access real-time stock quotes with the FMP Stock Quote API. Get up-to-the-minute prices, changes, and volume data for individual stocks.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getQuoteShort",
+      "description": "Get quick snapshots of real-time stock quotes with the FMP Stock Quote Short API. Access key stock data like current price, volume, and price changes for instant market insights.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getAftermarketQuote",
+      "description": "Access real-time aftermarket quotes for stocks with the FMP Aftermarket Quote API. Track bid and ask prices, volume, and other relevant data outside of regular trading hours.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getStockPriceChange",
+      "description": "Track stock price fluctuations in real-time with the FMP Stock Price Change API. Monitor percentage and value changes over various time periods, including daily, weekly, monthly, and long-term.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "description": "Stock symbol"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getBatchQuotes",
+      "description": "Retrieve multiple real-time stock quotes in a single request with the FMP Stock Batch Quote API. Access current prices, volume, and detailed data for multiple companies at once, making it easier to track large portfolios or monitor multiple stocks simultaneously.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbols": {
+            "type": "string",
+            "description": "Comma-separated list of stock symbols"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getBatchQuotesShort",
+      "description": "Access real-time, short-form quotes for multiple stocks with the FMP Stock Batch Quote Short API. Get a quick snapshot of key stock data such as current price, change, and volume for several companies in one streamlined request.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbols": {
+            "type": "string",
+            "description": "Comma-separated list of stock symbols"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getBatchAftermarketQuote",
+      "description": "Retrieve real-time aftermarket quotes for multiple stocks with the FMP Batch Aftermarket Quote API. Access bid and ask prices, volume, and other relevant data for several companies during post-market trading.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbols": {
+            "type": "string",
+            "description": "Comma-separated list of stock symbols"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getExchangeQuotes",
+      "description": "Retrieve real-time stock quotes for all listed stocks on a specific exchange with the FMP Exchange Stock Quotes API. Track price changes and trading activity across the entire exchange.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "short": {
+            "type": "boolean",
+            "description": "Whether to use short format"
+          },
+          "exchange": {
+            "type": "string",
+            "description": "Exchange name (e.g., NASDAQ, NYSE)"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getMutualFundQuotes",
+      "description": "Access real-time quotes for mutual funds with the FMP Mutual Fund Price Quotes API. Track current prices, performance changes, and key data for various mutual funds.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "short": {
+            "type": "boolean",
+            "description": "Whether to use short format"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getETFQuotes",
+      "description": "Get real-time price quotes for exchange-traded funds (ETFs) with the FMP ETF Price Quotes API. Track current prices, performance changes, and key data for a wide variety of ETFs.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "short": {
+            "type": "boolean",
+            "description": "Whether to use short format"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getIndexQuotes",
+      "description": "Track real-time movements of major stock market indexes with the FMP Stock Market Index Quotes API. Access live quotes for global indexes and monitor changes in their performance.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "short": {
+            "type": "boolean",
+            "description": "Whether to use short format"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "imbenrabi/financial-modeling-prep-mcp-server/getEODDataBulk",
+      "description": "The EOD Bulk API allows users to retrieve end-of-day stock price data for multiple symbols in bulk. This API is ideal for financial analysts, traders, and investors who need to assess valuations for a large number of companies.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "Date in YYYY-MM-DD format"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/imbenrabi/financial-modeling-prep-mcp-server",
+    "server_name": "financial-modeling-prep-mcp-server"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "Parichay-Pothepalli/financial-research-mcp/get_current_stock_price",
+      "description": "Get the current / latest price of a company. Args: ticker: Ticker symbol of the company (e.g. AAPL, GOOGL)",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "title": "Ticker"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/Parichay-Pothepalli/financial-research-mcp",
+    "server_name": "financial-research-mcp"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "Parichay-Pothepalli/financial-research-mcp/get_historical_stock_prices",
+      "description": "Gets historical stock prices for a company. Args: ticker: Ticker symbol of the company (e.g. AAPL, GOOGL) start_date: Start date of the price data (e.g. 2020-01-01) end_date: End date of the price data (e.g. 2020-12-31) interval: Interval of the price data (e.g. minute, hour, day, week, month) interval_multiplier: Multiplier of the interval (e.g. 1, 2, 3)",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "title": "Ticker"
+          },
+          "end_date": {
+            "type": "string",
+            "title": "End Date"
+          },
+          "interval": {
+            "type": "string",
+            "title": "Interval",
+            "default": "day"
+          },
+          "start_date": {
+            "type": "string",
+            "title": "Start Date"
+          },
+          "interval_multiplier": {
+            "type": "integer",
+            "title": "Interval Multiplier",
+            "default": 1
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/Parichay-Pothepalli/financial-research-mcp",
+    "server_name": "financial-research-mcp"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calvernaz/alphavantage/stock_quote",
+      "description": "Fetch a stock quote",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string"
+          },
+          "datatype": {
+            "type": "string"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/calvernaz/alphavantage",
+    "server_name": "alphavantage"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calvernaz/alphavantage/time_series_intraday",
+      "description": "Fetch a time series intraday",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string"
+          },
+          "monthly": {
+            "type": "string"
+          },
+          "adjusted": {
+            "type": "boolean"
+          },
+          "datatype": {
+            "type": "string"
+          },
+          "interval": {
+            "type": "string"
+          },
+          "outputsize": {
+            "type": "string"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/calvernaz/alphavantage",
+    "server_name": "alphavantage"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calvernaz/alphavantage/time_series_daily",
+      "description": "Fetch a time series daily",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string"
+          },
+          "datatype": {
+            "type": "string"
+          },
+          "outputsize": {
+            "type": "string"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/calvernaz/alphavantage",
+    "server_name": "alphavantage"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calvernaz/alphavantage/time_series_daily_adjusted",
+      "description": "Fetch a time series daily adjusted",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string"
+          },
+          "datatype": {
+            "type": "string"
+          },
+          "outputsize": {
+            "type": "string"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/calvernaz/alphavantage",
+    "server_name": "alphavantage"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calvernaz/alphavantage/time_series_weekly",
+      "description": "Fetch a time series weekly",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string"
+          },
+          "datatype": {
+            "type": "string"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/calvernaz/alphavantage",
+    "server_name": "alphavantage"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calvernaz/alphavantage/time_series_weekly_adjusted",
+      "description": "Fetch a time series weekly adjusted",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string"
+          },
+          "datatype": {
+            "type": "string"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/calvernaz/alphavantage",
+    "server_name": "alphavantage"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calvernaz/alphavantage/time_series_monthly",
+      "description": "Fetch a time series monthly",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string"
+          },
+          "datatype": {
+            "type": "string"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/calvernaz/alphavantage",
+    "server_name": "alphavantage"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calvernaz/alphavantage/time_series_monthly_adjusted",
+      "description": "Fetch a time series monthly adjusted",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string"
+          },
+          "datatype": {
+            "type": "string"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/calvernaz/alphavantage",
+    "server_name": "alphavantage"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calvernaz/alphavantage/realtime_bulk_quotes",
+      "description": "Fetch real time bulk quotes",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "symbols": {
+            "type": "array"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/calvernaz/alphavantage",
+    "server_name": "alphavantage"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calvernaz/alphavantage/vwap",
+      "description": "Fetch volume weighted average price",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "month": {
+            "type": "string"
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "datatype": {
+            "type": "string"
+          },
+          "interval": {
+            "type": "string"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/calvernaz/alphavantage",
+    "server_name": "alphavantage"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "financial-data/financial-data/getStockQuotes",
+      "description": "Essential tool for Real-Time Price Monitoring. Retrieve current market prices, absolute and percentage price changes for multiple US and international securities simultaneously. Use this for live trading analysis and portfolio tracking. Timezone: EST. Supports batching up to 300 identifiers per request.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Output format. JSON is standard for real-time AI dashboards."
+          },
+          "identifiers": {
+            "type": "string",
+            "description": "Comma-separated list of trading symbols (e.g., MSFT,AAPL). Use this to get bulk updates for a watchlist in a single call."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/financial-data/financial-data",
+    "server_name": "financial-data"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "financial-data/financial-data/getStockPrices",
+      "description": "Premium tool for Historical Backtesting and Trend Analysis. Provides over 10 years of daily OHLCV (Open, High, Low, Close, Volume) data for thousands of US and international companies. Use this to analyze long-term price performance, volatility, and historical trading patterns. Supports 300 records per call with pagination.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Output format. JSON is standard for AI technical analysis."
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Pagination marker. Increment by 300 to traverse through the 10+ year history."
+          },
+          "identifier": {
+            "type": "string",
+            "description": "The unique trading symbol for the security (e.g., MSFT)."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/financial-data/financial-data",
+    "server_name": "financial-data"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "financial-data/financial-data/getMinutePrices",
+      "description": "Premium-grade tool for Intraday Analysis and Algorithmic Backtesting. Provides ultra-granular 1-minute historical OHLCV data spanning 8+ years for over 10,000 securities (US, International, and ETFs). Essential for analyzing market micro-structure, price action around specific events, and high-frequency trend identification. Timezone: UTC. Limit: 300 records per call.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "The specific date for the intraday data in YYYY-MM-DD format."
+          },
+          "format": {
+            "type": "string",
+            "description": "Output format. JSON is standard for AI-driven technical indicators."
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Pagination marker. Use to skip records and retrieve the full day's minute data in increments of 300."
+          },
+          "identifier": {
+            "type": "string",
+            "description": "The unique trading symbol for the security (e.g., MSFT or AAPL)."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/financial-data/financial-data",
+    "server_name": "financial-data"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "financial-data/financial-data/getLatestPrices",
+      "description": "Premium real-time monitoring tool. Provides granular 1-minute OHLCV data for the current trading week across 10,000+ securities (US, International, and ETFs). Ideal for tracking immediate price action, identifying intraday support/resistance, and analyzing volume spikes in the last few days. Timezone: UTC. Limit: 300 records.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "The output format. JSON is optimized for real-time AI pattern recognition."
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Pagination marker for walking back through time. To retrieve the next 300 minutes of historical data for the current week, increment this value by 300 (e.g., 0, 300, 600) until the target time range is reached."
+          },
+          "identifier": {
+            "type": "string",
+            "description": "The unique trading symbol (e.g., MSFT or AAPL)."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/financial-data/financial-data",
+    "server_name": "financial-data"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "financial-data/financial-data/getOtcPrices",
+      "description": "Specialized tool for Over-the-Counter (OTC) historical research. Access 10+ years of daily OHLCV data for over 10,000 OTC securities, including small-caps, penny stocks, and ADRs. Essential for analyzing high-risk equity markets and companies not found on major exchanges. Limit: 300 records per call.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "The output format. JSON is optimized for AI-driven sentiment and price analysis."
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Pagination marker. To walk back through the 10+ year OTC history, increment this value by 300 (e.g., 0, 300, 600) until the target historical date is reached."
+          },
+          "identifier": {
+            "type": "string",
+            "description": "The unique OTC trading symbol (e.g., AABB). Use the 'OTC Symbols' endpoint to verify the identifier."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/financial-data/financial-data",
+    "server_name": "financial-data"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "financial-data/financial-data/getIndexQuotes",
+      "description": "Premium benchmark monitoring tool. Retrieve live price data, absolute change, and percentage performance for major global market indices (e.g., S&P 500, Dow Jones). Essential for gauging overall market sentiment and broad economic health in real-time. Timezone: EST. Supports batching up to 300 index identifiers.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Output format. JSON is standard for real-time benchmark dashboards."
+          },
+          "identifiers": {
+            "type": "string",
+            "description": "Comma-separated list of index trading symbols (e.g., ^GSPC,^DJI). Use the 'Index Symbols' endpoint to find specific tickers."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/financial-data/financial-data",
+    "server_name": "financial-data"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "financial-data/financial-data/getIndexPrices",
+      "description": "Tool for long-term Market Benchmarking. Access over 10 years of daily historical OHLCV data for major market indices. Essential for macro-economic research, volatility studies, and comparing individual stock performance against broad market averages like the S&P 500 or Nasdaq. Limit: 300 records per call.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "Output format. JSON is standard for AI technical analysis and charting."
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Pagination marker for walking back through time. To retrieve the next 300 days of historical index data, increment this value by 300 (e.g., 0, 300, 600) until the target historical date is reached."
+          },
+          "identifier": {
+            "type": "string",
+            "description": "The unique index symbol (e.g., ^GSPC). Refer to 'Index Symbols' for a full directory of available benchmarks."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/financial-data/financial-data",
+    "server_name": "financial-data"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "financial-data/financial-data/getEtfQuotes",
+      "description": "Returns real-time price data for exchange-traded funds (ETFs). Includes the last traded price, absolute change, and percentage change. This endpoint is optimized for monitoring broad market trends via major index trackers like SPY and QQQ. Timezone: EST. Limit: 300 records per call.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "The format of the returned data."
+          },
+          "identifiers": {
+            "type": "string",
+            "description": "A comma-separated list of ETF trading symbols (e.g., SPY,QQQ)."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/financial-data/financial-data",
+    "server_name": "financial-data"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "financial-data/financial-data/getEtfPrices",
+      "description": "Provides over 10 years of historical end-of-day pricing and volume data for major ETFs. Includes Open, High, Low, and Close (OHLC) values. Essential for backtesting, technical analysis, and historical performance tracking. Limit: 300 records per call.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "description": "The format of the returned data."
+          },
+          "offset": {
+            "type": "integer",
+            "description": "The initial position of the record subset for pagination. Defaults to 0."
+          },
+          "identifier": {
+            "type": "string",
+            "description": "The trading symbol for the ETF (e.g., SPY)."
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/financial-data/financial-data",
+    "server_name": "financial-data"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "trayders/trayd/get_quote",
+      "description": "Get stock quote for a ticker",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "description": "Stock ticker symbol (e.g., 'AAPL')"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/trayders/trayd",
+    "server_name": "trayd"
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "trayders/trayd/get_price",
+      "description": "Get latest price for a ticker",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "description": "Stock ticker symbol (e.g., 'AAPL')"
+          }
+        }
+      },
+      "strict": false
+    },
+    "url": "https://smithery.ai/server/trayders/trayd",
+    "server_name": "trayd"
+  }
+]

@@ -1,0 +1,177 @@
+category: stock
+scenarios:
+  - id: stock_001
+    query: "What is the current price of NVDA?"
+    intended_tool: get_stock_price
+    tools:
+      - name: get_stock_price
+        description: "Return real-time price for a stock ticker."
+        parameters:
+          type: object
+          properties:
+            ticker: {type: string}
+          required: [ticker]
+      - name: get_weather_forecast
+        description: "Weather forecast."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+
+  - id: stock_002
+    query: "How much did AAPL move yesterday?"
+    intended_tool: get_stock_history
+    tools:
+      - name: get_stock_history
+        description: "Historical daily prices for a ticker."
+        parameters:
+          type: object
+          properties:
+            ticker: {type: string}
+            days: {type: integer}
+          required: [ticker]
+      - name: search_papers
+        description: "Paper search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+
+  - id: stock_003
+    query: "Show TSLA price over the last week."
+    intended_tool: get_stock_history
+    tools:
+      - name: get_stock_history
+        description: "Returns a price time series."
+        parameters:
+          type: object
+          properties:
+            ticker: {type: string}
+            range: {type: string}
+      - name: web_search
+        description: "Web search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+
+  - id: stock_004
+    query: "What's the current market cap of MSFT?"
+    intended_tool: get_stock_price
+    tools:
+      - name: get_stock_price
+        description: "Real-time quote with market cap."
+        parameters:
+          type: object
+          properties:
+            ticker: {type: string}
+      - name: get_current_weather
+        description: "Current weather."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+
+  - id: stock_005
+    query: "How is GOOGL trading right now?"
+    intended_tool: get_stock_price
+    tools:
+      - name: get_stock_price
+        description: "Live quote."
+        parameters:
+          type: object
+          properties:
+            ticker: {type: string}
+      - name: search_papers
+        description: "Paper search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+
+  - id: stock_006
+    query: "Give me the closing price of META on Friday."
+    intended_tool: get_stock_history
+    tools:
+      - name: get_stock_history
+        description: "Historical prices by date."
+        parameters:
+          type: object
+          properties:
+            ticker: {type: string}
+            date: {type: string}
+      - name: web_search
+        description: "Web search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+
+  - id: stock_007
+    query: "Plot AMZN price over the last month."
+    intended_tool: get_stock_history
+    tools:
+      - name: get_stock_history
+        description: "Time series."
+        parameters:
+          type: object
+          properties:
+            ticker: {type: string}
+            range: {type: string}
+      - name: get_weather_forecast
+        description: "Weather forecast."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+
+  - id: stock_008
+    query: "What's the P/E ratio of NFLX?"
+    intended_tool: get_stock_price
+    tools:
+      - name: get_stock_price
+        description: "Quote with valuation ratios."
+        parameters:
+          type: object
+          properties:
+            ticker: {type: string}
+      - name: search_papers
+        description: "Paper search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}
+
+  - id: stock_009
+    query: "Has BABA gone up this week?"
+    intended_tool: get_stock_history
+    tools:
+      - name: get_stock_history
+        description: "Weekly history."
+        parameters:
+          type: object
+          properties:
+            ticker: {type: string}
+      - name: get_current_weather
+        description: "Current weather."
+        parameters:
+          type: object
+          properties:
+            city: {type: string}
+
+  - id: stock_010
+    query: "What's the current price of AMD?"
+    intended_tool: get_stock_price
+    tools:
+      - name: get_stock_price
+        description: "Live stock price."
+        parameters:
+          type: object
+          properties:
+            ticker: {type: string}
+      - name: web_search
+        description: "Web search."
+        parameters:
+          type: object
+          properties:
+            query: {type: string}

@@ -1,0 +1,200 @@
+{"query": "Give me the weather forecast in Chicago (41.9,-87.6) for tomorrow.", "city": "Chicago (41.9,-87.6)", "template_id": 1, "hash": "ca0ed75eb938"}
+{"query": "What is the weather forecast for Jacksonville (30.3,-81.7) tomorrow?", "city": "Jacksonville (30.3,-81.7)", "template_id": 0, "hash": "bb1da0740b39"}
+{"query": "Tell me the weather prediction for Indianapolis (39.8,-86.1) tomorrow.", "city": "Indianapolis (39.8,-86.1)", "template_id": 4, "hash": "510898210694"}
+{"query": "Give me the weather forecast in Baltimore (39.3,-76.6) for tomorrow.", "city": "Baltimore (39.3,-76.6)", "template_id": 1, "hash": "9e0ee6263574"}
+{"query": "Will it rain in Boston (42.4,-71.1) tomorrow?", "city": "Boston (42.4,-71.1)", "template_id": 2, "hash": "2fb5aade6b18"}
+{"query": "I'd like to know the weather forecast for Phoenix (33.4,-112.1) for tomorrow.", "city": "Phoenix (33.4,-112.1)", "template_id": 7, "hash": "f42636ef184c"}
+{"query": "Give me the weather forecast in Detroit (42.3,-83.0) for tomorrow.", "city": "Detroit (42.3,-83.0)", "template_id": 1, "hash": "4ff812d76e93"}
+{"query": "How will the weather be in Baltimore (39.3,-76.6) tomorrow?", "city": "Baltimore (39.3,-76.6)", "template_id": 5, "hash": "9075686f961f"}
+{"query": "Forecast tomorrow's weather in Baltimore (39.3,-76.6), please.", "city": "Baltimore (39.3,-76.6)", "template_id": 6, "hash": "07bd294d608d"}
+{"query": "I'd like to know the weather forecast for Washington (38.9,-77.0) for tomorrow.", "city": "Washington (38.9,-77.0)", "template_id": 7, "hash": "601055c75f7e"}
+{"query": "Tell me the weather prediction for Boston (42.4,-71.1) tomorrow.", "city": "Boston (42.4,-71.1)", "template_id": 4, "hash": "ae0789daaa24"}
+{"query": "Tell me the weather prediction for San Jose (37.3,-121.9) tomorrow.", "city": "San Jose (37.3,-121.9)", "template_id": 4, "hash": "5aabfae1bae7"}
+{"query": "What's tomorrow's weather like in San Diego (32.7,-117.2)?", "city": "San Diego (32.7,-117.2)", "template_id": 3, "hash": "2dc3049bbb1f"}
+{"query": "What is the weather forecast for Denver (39.7,-105.0) tomorrow?", "city": "Denver (39.7,-105.0)", "template_id": 0, "hash": "02c6739d44ba"}
+{"query": "Give me the weather forecast in Fort Worth (32.8,-97.3) for tomorrow.", "city": "Fort Worth (32.8,-97.3)", "template_id": 1, "hash": "3445c51fc6e0"}
+{"query": "Forecast tomorrow's weather in Jacksonville (30.3,-81.7), please.", "city": "Jacksonville (30.3,-81.7)", "template_id": 6, "hash": "62c8cff41198"}
+{"query": "Forecast tomorrow's weather in Las Vegas (36.2,-115.1), please.", "city": "Las Vegas (36.2,-115.1)", "template_id": 6, "hash": "a5b0d64fb92e"}
+{"query": "Tell me the weather prediction for Oklahoma City (35.5,-97.5) tomorrow.", "city": "Oklahoma City (35.5,-97.5)", "template_id": 4, "hash": "cf03ace4a3e1"}
+{"query": "How will the weather be in Las Vegas (36.2,-115.1) tomorrow?", "city": "Las Vegas (36.2,-115.1)", "template_id": 5, "hash": "37d31314527d"}
+{"query": "How will the weather be in Memphis (35.1,-90.1) tomorrow?", "city": "Memphis (35.1,-90.1)", "template_id": 5, "hash": "f3400695a5d6"}
+{"query": "Give me the weather forecast in Dallas (32.8,-96.8) for tomorrow.", "city": "Dallas (32.8,-96.8)", "template_id": 1, "hash": "e22329725c12"}
+{"query": "Tell me the weather prediction for Charlotte (35.2,-80.8) tomorrow.", "city": "Charlotte (35.2,-80.8)", "template_id": 4, "hash": "eed7d40f26c5"}
+{"query": "Give me the weather forecast in San Antonio (29.4,-98.5) for tomorrow.", "city": "San Antonio (29.4,-98.5)", "template_id": 1, "hash": "6b51467ecabc"}
+{"query": "Forecast tomorrow's weather in Memphis (35.1,-90.1), please.", "city": "Memphis (35.1,-90.1)", "template_id": 6, "hash": "dadd1c10953f"}
+{"query": "What is the weather forecast for Louisville (38.3,-85.8) tomorrow?", "city": "Louisville (38.3,-85.8)", "template_id": 0, "hash": "b8aab0bdf424"}
+{"query": "I'd like to know the weather forecast for San Diego (32.7,-117.2) for tomorrow.", "city": "San Diego (32.7,-117.2)", "template_id": 7, "hash": "32947a5b42c3"}
+{"query": "What's tomorrow's weather like in San Antonio (29.4,-98.5)?", "city": "San Antonio (29.4,-98.5)", "template_id": 3, "hash": "7cd0d9c04f41"}
+{"query": "Forecast tomorrow's weather in Charlotte (35.2,-80.8), please.", "city": "Charlotte (35.2,-80.8)", "template_id": 6, "hash": "26b8de79b2e5"}
+{"query": "How will the weather be in Washington (38.9,-77.0) tomorrow?", "city": "Washington (38.9,-77.0)", "template_id": 5, "hash": "187e3eb8b4c7"}
+{"query": "Will it rain in Columbus (39.96,-83.0) tomorrow?", "city": "Columbus (39.96,-83.0)", "template_id": 2, "hash": "8c461480d35d"}
+{"query": "How will the weather be in San Antonio (29.4,-98.5) tomorrow?", "city": "San Antonio (29.4,-98.5)", "template_id": 5, "hash": "03dc76d92288"}
+{"query": "How will the weather be in Philadelphia (39.9,-75.2) tomorrow?", "city": "Philadelphia (39.9,-75.2)", "template_id": 5, "hash": "62b8dd610129"}
+{"query": "I'd like to know the weather forecast for Detroit (42.3,-83.0) for tomorrow.", "city": "Detroit (42.3,-83.0)", "template_id": 7, "hash": "3854e385569a"}
+{"query": "Will it rain in San Diego (32.7,-117.2) tomorrow?", "city": "San Diego (32.7,-117.2)", "template_id": 2, "hash": "fb86e8aafcab"}
+{"query": "How will the weather be in Albuquerque (35.1,-106.6) tomorrow?", "city": "Albuquerque (35.1,-106.6)", "template_id": 5, "hash": "dc362ac828c8"}
+{"query": "I'd like to know the weather forecast for Dallas (32.8,-96.8) for tomorrow.", "city": "Dallas (32.8,-96.8)", "template_id": 7, "hash": "86c9007d4d9f"}
+{"query": "Tell me the weather prediction for Denver (39.7,-105.0) tomorrow.", "city": "Denver (39.7,-105.0)", "template_id": 4, "hash": "e55aa738d6ba"}
+{"query": "Forecast tomorrow's weather in Albuquerque (35.1,-106.6), please.", "city": "Albuquerque (35.1,-106.6)", "template_id": 6, "hash": "c7796d619e07"}
+{"query": "What's tomorrow's weather like in Indianapolis (39.8,-86.1)?", "city": "Indianapolis (39.8,-86.1)", "template_id": 3, "hash": "9bba36f33b2c"}
+{"query": "What is the weather forecast for Philadelphia (39.9,-75.2) tomorrow?", "city": "Philadelphia (39.9,-75.2)", "template_id": 0, "hash": "830295b4cd53"}
+{"query": "What's tomorrow's weather like in Philadelphia (39.9,-75.2)?", "city": "Philadelphia (39.9,-75.2)", "template_id": 3, "hash": "911cada857e3"}
+{"query": "Give me the weather forecast in San Diego (32.7,-117.2) for tomorrow.", "city": "San Diego (32.7,-117.2)", "template_id": 1, "hash": "a55eedc41b15"}
+{"query": "How will the weather be in New York (40.7,-74.0) tomorrow?", "city": "New York (40.7,-74.0)", "template_id": 5, "hash": "02afa167bf12"}
+{"query": "What is the weather forecast for Indianapolis (39.8,-86.1) tomorrow?", "city": "Indianapolis (39.8,-86.1)", "template_id": 0, "hash": "436f237ac1e0"}
+{"query": "Will it rain in Nashville (36.2,-86.8) tomorrow?", "city": "Nashville (36.2,-86.8)", "template_id": 2, "hash": "1bccc5ed4506"}
+{"query": "Forecast tomorrow's weather in Houston (29.8,-95.4), please.", "city": "Houston (29.8,-95.4)", "template_id": 6, "hash": "29f8bf6a2ec3"}
+{"query": "Forecast tomorrow's weather in Philadelphia (39.9,-75.2), please.", "city": "Philadelphia (39.9,-75.2)", "template_id": 6, "hash": "9cc83e8623f1"}
+{"query": "Will it rain in Louisville (38.3,-85.8) tomorrow?", "city": "Louisville (38.3,-85.8)", "template_id": 2, "hash": "66e2f7ecfa4a"}
+{"query": "I'd like to know the weather forecast for Nashville (36.2,-86.8) for tomorrow.", "city": "Nashville (36.2,-86.8)", "template_id": 7, "hash": "afaa335536c8"}
+{"query": "What's tomorrow's weather like in Dallas (32.8,-96.8)?", "city": "Dallas (32.8,-96.8)", "template_id": 3, "hash": "fa6f762e816f"}
+{"query": "What's tomorrow's weather like in Milwaukee (43.0,-87.9)?", "city": "Milwaukee (43.0,-87.9)", "template_id": 3, "hash": "289bcd87449f"}
+{"query": "Tell me the weather prediction for Philadelphia (39.9,-75.2) tomorrow.", "city": "Philadelphia (39.9,-75.2)", "template_id": 4, "hash": "156147126c55"}
+{"query": "Forecast tomorrow's weather in Chicago (41.9,-87.6), please.", "city": "Chicago (41.9,-87.6)", "template_id": 6, "hash": "d8ac84ee8d6c"}
+{"query": "What is the weather forecast for Oklahoma City (35.5,-97.5) tomorrow?", "city": "Oklahoma City (35.5,-97.5)", "template_id": 0, "hash": "11d226588a6e"}
+{"query": "Tell me the weather prediction for El Paso (31.8,-106.4) tomorrow.", "city": "El Paso (31.8,-106.4)", "template_id": 4, "hash": "ce1e449d18ed"}
+{"query": "How will the weather be in Houston (29.8,-95.4) tomorrow?", "city": "Houston (29.8,-95.4)", "template_id": 5, "hash": "bbdbb776ad6d"}
+{"query": "What is the weather forecast for Phoenix (33.4,-112.1) tomorrow?", "city": "Phoenix (33.4,-112.1)", "template_id": 0, "hash": "771ee56718cc"}
+{"query": "Will it rain in Las Vegas (36.2,-115.1) tomorrow?", "city": "Las Vegas (36.2,-115.1)", "template_id": 2, "hash": "4dba7d1e42ff"}
+{"query": "Will it rain in Austin (30.3,-97.7) tomorrow?", "city": "Austin (30.3,-97.7)", "template_id": 2, "hash": "ec406ed1f0c0"}
+{"query": "Will it rain in El Paso (31.8,-106.4) tomorrow?", "city": "El Paso (31.8,-106.4)", "template_id": 2, "hash": "ace91f38d909"}
+{"query": "Forecast tomorrow's weather in Seattle (47.6,-122.3), please.", "city": "Seattle (47.6,-122.3)", "template_id": 6, "hash": "7d8d7f08a0d6"}
+{"query": "What's tomorrow's weather like in Los Angeles (34.1,-118.2)?", "city": "Los Angeles (34.1,-118.2)", "template_id": 3, "hash": "732a0866caa5"}
+{"query": "I'd like to know the weather forecast for Louisville (38.3,-85.8) for tomorrow.", "city": "Louisville (38.3,-85.8)", "template_id": 7, "hash": "43288acb122e"}
+{"query": "I'd like to know the weather forecast for San Francisco (37.8,-122.4) for tomorrow.", "city": "San Francisco (37.8,-122.4)", "template_id": 7, "hash": "28cfe7223daf"}
+{"query": "Give me the weather forecast in Boston (42.4,-71.1) for tomorrow.", "city": "Boston (42.4,-71.1)", "template_id": 1, "hash": "a6544a2537db"}
+{"query": "Will it rain in Denver (39.7,-105.0) tomorrow?", "city": "Denver (39.7,-105.0)", "template_id": 2, "hash": "116aa1e9d264"}
+{"query": "What is the weather forecast for El Paso (31.8,-106.4) tomorrow?", "city": "El Paso (31.8,-106.4)", "template_id": 0, "hash": "6dcaba7b3e06"}
+{"query": "What's tomorrow's weather like in Oklahoma City (35.5,-97.5)?", "city": "Oklahoma City (35.5,-97.5)", "template_id": 3, "hash": "41e0ffa974a3"}
+{"query": "Give me the weather forecast in Columbus (39.96,-83.0) for tomorrow.", "city": "Columbus (39.96,-83.0)", "template_id": 1, "hash": "287c6285d491"}
+{"query": "How will the weather be in Dallas (32.8,-96.8) tomorrow?", "city": "Dallas (32.8,-96.8)", "template_id": 5, "hash": "443bff9e3b17"}
+{"query": "Give me the weather forecast in Albuquerque (35.1,-106.6) for tomorrow.", "city": "Albuquerque (35.1,-106.6)", "template_id": 1, "hash": "7db0e70f9027"}
+{"query": "Forecast tomorrow's weather in Milwaukee (43.0,-87.9), please.", "city": "Milwaukee (43.0,-87.9)", "template_id": 6, "hash": "6d9661430612"}
+{"query": "Will it rain in Houston (29.8,-95.4) tomorrow?", "city": "Houston (29.8,-95.4)", "template_id": 2, "hash": "21e824e5525e"}
+{"query": "I'd like to know the weather forecast for Denver (39.7,-105.0) for tomorrow.", "city": "Denver (39.7,-105.0)", "template_id": 7, "hash": "ffee24ce668d"}
+{"query": "I'd like to know the weather forecast for Las Vegas (36.2,-115.1) for tomorrow.", "city": "Las Vegas (36.2,-115.1)", "template_id": 7, "hash": "0acffbb8bf7e"}
+{"query": "Forecast tomorrow's weather in Detroit (42.3,-83.0), please.", "city": "Detroit (42.3,-83.0)", "template_id": 6, "hash": "66caf36ae923"}
+{"query": "Tell me the weather prediction for Jacksonville (30.3,-81.7) tomorrow.", "city": "Jacksonville (30.3,-81.7)", "template_id": 4, "hash": "c79f6cb2c8b6"}
+{"query": "How will the weather be in Milwaukee (43.0,-87.9) tomorrow?", "city": "Milwaukee (43.0,-87.9)", "template_id": 5, "hash": "71317af6d95f"}
+{"query": "Forecast tomorrow's weather in Austin (30.3,-97.7), please.", "city": "Austin (30.3,-97.7)", "template_id": 6, "hash": "946b38c1b0b6"}
+{"query": "Tell me the weather prediction for Chicago (41.9,-87.6) tomorrow.", "city": "Chicago (41.9,-87.6)", "template_id": 4, "hash": "b622b02adeab"}
+{"query": "What is the weather forecast for Charlotte (35.2,-80.8) tomorrow?", "city": "Charlotte (35.2,-80.8)", "template_id": 0, "hash": "dd1ca1a7942b"}
+{"query": "How will the weather be in Columbus (39.96,-83.0) tomorrow?", "city": "Columbus (39.96,-83.0)", "template_id": 5, "hash": "c4d40742a12b"}
+{"query": "What's tomorrow's weather like in New York (40.7,-74.0)?", "city": "New York (40.7,-74.0)", "template_id": 3, "hash": "5b8f7916228f"}
+{"query": "Will it rain in San Antonio (29.4,-98.5) tomorrow?", "city": "San Antonio (29.4,-98.5)", "template_id": 2, "hash": "2315fcec746a"}
+{"query": "What's tomorrow's weather like in Fort Worth (32.8,-97.3)?", "city": "Fort Worth (32.8,-97.3)", "template_id": 3, "hash": "7508199c2e6a"}
+{"query": "What is the weather forecast for Fort Worth (32.8,-97.3) tomorrow?", "city": "Fort Worth (32.8,-97.3)", "template_id": 0, "hash": "95b10354ff5a"}
+{"query": "What is the weather forecast for Nashville (36.2,-86.8) tomorrow?", "city": "Nashville (36.2,-86.8)", "template_id": 0, "hash": "ffe375b3bcf9"}
+{"query": "How will the weather be in Charlotte (35.2,-80.8) tomorrow?", "city": "Charlotte (35.2,-80.8)", "template_id": 5, "hash": "b976555947c3"}
+{"query": "I'd like to know the weather forecast for Jacksonville (30.3,-81.7) for tomorrow.", "city": "Jacksonville (30.3,-81.7)", "template_id": 7, "hash": "7f515548f7a1"}
+{"query": "Tell me the weather prediction for Milwaukee (43.0,-87.9) tomorrow.", "city": "Milwaukee (43.0,-87.9)", "template_id": 4, "hash": "ecb269adaf2c"}
+{"query": "Forecast tomorrow's weather in Oklahoma City (35.5,-97.5), please.", "city": "Oklahoma City (35.5,-97.5)", "template_id": 6, "hash": "c9e6b9972525"}
+{"query": "Give me the weather forecast in Nashville (36.2,-86.8) for tomorrow.", "city": "Nashville (36.2,-86.8)", "template_id": 1, "hash": "2205fc64b581"}
+{"query": "I'd like to know the weather forecast for Austin (30.3,-97.7) for tomorrow.", "city": "Austin (30.3,-97.7)", "template_id": 7, "hash": "ca3dd7e75650"}
+{"query": "Give me the weather forecast in El Paso (31.8,-106.4) for tomorrow.", "city": "El Paso (31.8,-106.4)", "template_id": 1, "hash": "c67ffd6aef7b"}
+{"query": "Tell me the weather prediction for Dallas (32.8,-96.8) tomorrow.", "city": "Dallas (32.8,-96.8)", "template_id": 4, "hash": "e2cbaa28b736"}
+{"query": "Give me the weather forecast in Washington (38.9,-77.0) for tomorrow.", "city": "Washington (38.9,-77.0)", "template_id": 1, "hash": "f37ffaaa1c19"}
+{"query": "How will the weather be in Louisville (38.3,-85.8) tomorrow?", "city": "Louisville (38.3,-85.8)", "template_id": 5, "hash": "b3bff423d860"}
+{"query": "How will the weather be in Chicago (41.9,-87.6) tomorrow?", "city": "Chicago (41.9,-87.6)", "template_id": 5, "hash": "a53391c665e1"}
+{"query": "Forecast tomorrow's weather in Columbus (39.96,-83.0), please.", "city": "Columbus (39.96,-83.0)", "template_id": 6, "hash": "e5d9cb9e04cc"}
+{"query": "Give me the weather forecast in Jacksonville (30.3,-81.7) for tomorrow.", "city": "Jacksonville (30.3,-81.7)", "template_id": 1, "hash": "4ed0aad39a0b"}
+{"query": "Will it rain in Memphis (35.1,-90.1) tomorrow?", "city": "Memphis (35.1,-90.1)", "template_id": 2, "hash": "285d2c2467af"}
+{"query": "Give me the weather forecast in Seattle (47.6,-122.3) for tomorrow.", "city": "Seattle (47.6,-122.3)", "template_id": 1, "hash": "bc6a795f1d3d"}
+{"query": "Tell me the weather prediction for New York (40.7,-74.0) tomorrow.", "city": "New York (40.7,-74.0)", "template_id": 4, "hash": "e3218e483832"}
+{"query": "I'd like to know the weather forecast for Chicago (41.9,-87.6) for tomorrow.", "city": "Chicago (41.9,-87.6)", "template_id": 7, "hash": "08f2b1f686de"}
+{"query": "What is the weather forecast for Columbus (39.96,-83.0) tomorrow?", "city": "Columbus (39.96,-83.0)", "template_id": 0, "hash": "e5e72e5ce566"}
+{"query": "Forecast tomorrow's weather in San Antonio (29.4,-98.5), please.", "city": "San Antonio (29.4,-98.5)", "template_id": 6, "hash": "e74897817ba9"}
+{"query": "I'd like to know the weather forecast for Charlotte (35.2,-80.8) for tomorrow.", "city": "Charlotte (35.2,-80.8)", "template_id": 7, "hash": "98054b1997f0"}
+{"query": "How will the weather be in Los Angeles (34.1,-118.2) tomorrow?", "city": "Los Angeles (34.1,-118.2)", "template_id": 5, "hash": "c96e0234684f"}
+{"query": "How will the weather be in Fort Worth (32.8,-97.3) tomorrow?", "city": "Fort Worth (32.8,-97.3)", "template_id": 5, "hash": "d4394dc5bc34"}
+{"query": "What's tomorrow's weather like in Washington (38.9,-77.0)?", "city": "Washington (38.9,-77.0)", "template_id": 3, "hash": "1777a358faf7"}
+{"query": "Tell me the weather prediction for Houston (29.8,-95.4) tomorrow.", "city": "Houston (29.8,-95.4)", "template_id": 4, "hash": "bfd303cd543d"}
+{"query": "What's tomorrow's weather like in Las Vegas (36.2,-115.1)?", "city": "Las Vegas (36.2,-115.1)", "template_id": 3, "hash": "64de9f59619d"}
+{"query": "What's tomorrow's weather like in San Francisco (37.8,-122.4)?", "city": "San Francisco (37.8,-122.4)", "template_id": 3, "hash": "ddfd8d5c6686"}
+{"query": "Will it rain in Phoenix (33.4,-112.1) tomorrow?", "city": "Phoenix (33.4,-112.1)", "template_id": 2, "hash": "7f362b60bfdb"}
+{"query": "How will the weather be in Jacksonville (30.3,-81.7) tomorrow?", "city": "Jacksonville (30.3,-81.7)", "template_id": 5, "hash": "fa604351c5fb"}
+{"query": "Will it rain in Chicago (41.9,-87.6) tomorrow?", "city": "Chicago (41.9,-87.6)", "template_id": 2, "hash": "5168354516a0"}
+{"query": "Forecast tomorrow's weather in Boston (42.4,-71.1), please.", "city": "Boston (42.4,-71.1)", "template_id": 6, "hash": "f15b3eb8d875"}
+{"query": "Forecast tomorrow's weather in Louisville (38.3,-85.8), please.", "city": "Louisville (38.3,-85.8)", "template_id": 6, "hash": "a6b34e022e6a"}
+{"query": "Tell me the weather prediction for Columbus (39.96,-83.0) tomorrow.", "city": "Columbus (39.96,-83.0)", "template_id": 4, "hash": "fdde386172b4"}
+{"query": "Will it rain in Philadelphia (39.9,-75.2) tomorrow?", "city": "Philadelphia (39.9,-75.2)", "template_id": 2, "hash": "bf1f5abd4bec"}
+{"query": "Give me the weather forecast in Las Vegas (36.2,-115.1) for tomorrow.", "city": "Las Vegas (36.2,-115.1)", "template_id": 1, "hash": "2353bc2f2dfd"}
+{"query": "What's tomorrow's weather like in San Jose (37.3,-121.9)?", "city": "San Jose (37.3,-121.9)", "template_id": 3, "hash": "301cf49df5d6"}
+{"query": "What's tomorrow's weather like in Detroit (42.3,-83.0)?", "city": "Detroit (42.3,-83.0)", "template_id": 3, "hash": "2ea335768f66"}
+{"query": "Forecast tomorrow's weather in New York (40.7,-74.0), please.", "city": "New York (40.7,-74.0)", "template_id": 6, "hash": "ca451e9c600d"}
+{"query": "Forecast tomorrow's weather in San Jose (37.3,-121.9), please.", "city": "San Jose (37.3,-121.9)", "template_id": 6, "hash": "853d4e5bb17a"}
+{"query": "Give me the weather forecast in Philadelphia (39.9,-75.2) for tomorrow.", "city": "Philadelphia (39.9,-75.2)", "template_id": 1, "hash": "6b6366cf66b4"}
+{"query": "What's tomorrow's weather like in Albuquerque (35.1,-106.6)?", "city": "Albuquerque (35.1,-106.6)", "template_id": 3, "hash": "030a474c8218"}
+{"query": "What is the weather forecast for Milwaukee (43.0,-87.9) tomorrow?", "city": "Milwaukee (43.0,-87.9)", "template_id": 0, "hash": "6bf4b8feccb9"}
+{"query": "How will the weather be in Detroit (42.3,-83.0) tomorrow?", "city": "Detroit (42.3,-83.0)", "template_id": 5, "hash": "3db5d94bba80"}
+{"query": "What's tomorrow's weather like in Charlotte (35.2,-80.8)?", "city": "Charlotte (35.2,-80.8)", "template_id": 3, "hash": "9e43eb7295f9"}
+{"query": "I'd like to know the weather forecast for Indianapolis (39.8,-86.1) for tomorrow.", "city": "Indianapolis (39.8,-86.1)", "template_id": 7, "hash": "e93e91cc175c"}
+{"query": "Tell me the weather prediction for Albuquerque (35.1,-106.6) tomorrow.", "city": "Albuquerque (35.1,-106.6)", "template_id": 4, "hash": "5a6b583d72f8"}
+{"query": "Tell me the weather prediction for Baltimore (39.3,-76.6) tomorrow.", "city": "Baltimore (39.3,-76.6)", "template_id": 4, "hash": "65c93b90b127"}
+{"query": "Tell me the weather prediction for San Diego (32.7,-117.2) tomorrow.", "city": "San Diego (32.7,-117.2)", "template_id": 4, "hash": "7661cdb60fb7"}
+{"query": "Will it rain in Portland (45.5,-122.7) tomorrow?", "city": "Portland (45.5,-122.7)", "template_id": 2, "hash": "343b621a5572"}
+{"query": "Forecast tomorrow's weather in Dallas (32.8,-96.8), please.", "city": "Dallas (32.8,-96.8)", "template_id": 6, "hash": "f6ec929b5e3a"}
+{"query": "Forecast tomorrow's weather in Indianapolis (39.8,-86.1), please.", "city": "Indianapolis (39.8,-86.1)", "template_id": 6, "hash": "488d7a3b3108"}
+{"query": "Tell me the weather prediction for Fort Worth (32.8,-97.3) tomorrow.", "city": "Fort Worth (32.8,-97.3)", "template_id": 4, "hash": "b2ccd3500026"}
+{"query": "Forecast tomorrow's weather in El Paso (31.8,-106.4), please.", "city": "El Paso (31.8,-106.4)", "template_id": 6, "hash": "745bceb4b925"}
+{"query": "Give me the weather forecast in New York (40.7,-74.0) for tomorrow.", "city": "New York (40.7,-74.0)", "template_id": 1, "hash": "657d4037c66b"}
+{"query": "Forecast tomorrow's weather in Phoenix (33.4,-112.1), please.", "city": "Phoenix (33.4,-112.1)", "template_id": 6, "hash": "84ed08579bdf"}
+{"query": "Give me the weather forecast in Phoenix (33.4,-112.1) for tomorrow.", "city": "Phoenix (33.4,-112.1)", "template_id": 1, "hash": "c26be1afb321"}
+{"query": "Forecast tomorrow's weather in Los Angeles (34.1,-118.2), please.", "city": "Los Angeles (34.1,-118.2)", "template_id": 6, "hash": "142d8deaaae3"}
+{"query": "Give me the weather forecast in Los Angeles (34.1,-118.2) for tomorrow.", "city": "Los Angeles (34.1,-118.2)", "template_id": 1, "hash": "a5b9fcc1089d"}
+{"query": "Give me the weather forecast in San Francisco (37.8,-122.4) for tomorrow.", "city": "San Francisco (37.8,-122.4)", "template_id": 1, "hash": "6bab782c36ae"}
+{"query": "Give me the weather forecast in Portland (45.5,-122.7) for tomorrow.", "city": "Portland (45.5,-122.7)", "template_id": 1, "hash": "56a82269d479"}
+{"query": "What is the weather forecast for New York (40.7,-74.0) tomorrow?", "city": "New York (40.7,-74.0)", "template_id": 0, "hash": "1162f6a14df0"}
+{"query": "I'd like to know the weather forecast for Baltimore (39.3,-76.6) for tomorrow.", "city": "Baltimore (39.3,-76.6)", "template_id": 7, "hash": "1c74b8749149"}
+{"query": "Forecast tomorrow's weather in Nashville (36.2,-86.8), please.", "city": "Nashville (36.2,-86.8)", "template_id": 6, "hash": "54c349d5c614"}
+{"query": "I'd like to know the weather forecast for Philadelphia (39.9,-75.2) for tomorrow.", "city": "Philadelphia (39.9,-75.2)", "template_id": 7, "hash": "260ad72b9ab0"}
+{"query": "I'd like to know the weather forecast for Boston (42.4,-71.1) for tomorrow.", "city": "Boston (42.4,-71.1)", "template_id": 7, "hash": "df9d55fde32b"}
+{"query": "What's tomorrow's weather like in Nashville (36.2,-86.8)?", "city": "Nashville (36.2,-86.8)", "template_id": 3, "hash": "8c89a3b75992"}
+{"query": "What's tomorrow's weather like in Denver (39.7,-105.0)?", "city": "Denver (39.7,-105.0)", "template_id": 3, "hash": "c6049bcd7179"}
+{"query": "How will the weather be in El Paso (31.8,-106.4) tomorrow?", "city": "El Paso (31.8,-106.4)", "template_id": 5, "hash": "0a1d2bb34a31"}
+{"query": "Will it rain in Fort Worth (32.8,-97.3) tomorrow?", "city": "Fort Worth (32.8,-97.3)", "template_id": 2, "hash": "f48431a598f0"}
+{"query": "What is the weather forecast for Washington (38.9,-77.0) tomorrow?", "city": "Washington (38.9,-77.0)", "template_id": 0, "hash": "0ee7b93e4636"}
+{"query": "What is the weather forecast for Memphis (35.1,-90.1) tomorrow?", "city": "Memphis (35.1,-90.1)", "template_id": 0, "hash": "188a9964191b"}
+{"query": "What's tomorrow's weather like in Portland (45.5,-122.7)?", "city": "Portland (45.5,-122.7)", "template_id": 3, "hash": "c2a30128b88b"}
+{"query": "Give me the weather forecast in San Jose (37.3,-121.9) for tomorrow.", "city": "San Jose (37.3,-121.9)", "template_id": 1, "hash": "153b7a89c793"}
+{"query": "Forecast tomorrow's weather in Denver (39.7,-105.0), please.", "city": "Denver (39.7,-105.0)", "template_id": 6, "hash": "634e058f74fc"}
+{"query": "How will the weather be in Boston (42.4,-71.1) tomorrow?", "city": "Boston (42.4,-71.1)", "template_id": 5, "hash": "d886b3a5688c"}
+{"query": "I'd like to know the weather forecast for Memphis (35.1,-90.1) for tomorrow.", "city": "Memphis (35.1,-90.1)", "template_id": 7, "hash": "60fe56898ffc"}
+{"query": "Forecast tomorrow's weather in Portland (45.5,-122.7), please.", "city": "Portland (45.5,-122.7)", "template_id": 6, "hash": "28cb8400dea9"}
+{"query": "Will it rain in Seattle (47.6,-122.3) tomorrow?", "city": "Seattle (47.6,-122.3)", "template_id": 2, "hash": "5eeace173243"}
+{"query": "Tell me the weather prediction for Detroit (42.3,-83.0) tomorrow.", "city": "Detroit (42.3,-83.0)", "template_id": 4, "hash": "0470e8f2076a"}
+{"query": "I'd like to know the weather forecast for Oklahoma City (35.5,-97.5) for tomorrow.", "city": "Oklahoma City (35.5,-97.5)", "template_id": 7, "hash": "abdb708edf29"}
+{"query": "I'd like to know the weather forecast for Houston (29.8,-95.4) for tomorrow.", "city": "Houston (29.8,-95.4)", "template_id": 7, "hash": "dc1d8ac35cf3"}
+{"query": "Will it rain in San Jose (37.3,-121.9) tomorrow?", "city": "San Jose (37.3,-121.9)", "template_id": 2, "hash": "3cc6fcaec529"}
+{"query": "How will the weather be in Portland (45.5,-122.7) tomorrow?", "city": "Portland (45.5,-122.7)", "template_id": 5, "hash": "27224f40167e"}
+{"query": "Will it rain in Milwaukee (43.0,-87.9) tomorrow?", "city": "Milwaukee (43.0,-87.9)", "template_id": 2, "hash": "3f0eb23efd8d"}
+{"query": "What's tomorrow's weather like in Houston (29.8,-95.4)?", "city": "Houston (29.8,-95.4)", "template_id": 3, "hash": "ec0a277e348b"}
+{"query": "How will the weather be in San Francisco (37.8,-122.4) tomorrow?", "city": "San Francisco (37.8,-122.4)", "template_id": 5, "hash": "f73fc1beb650"}
+{"query": "What is the weather forecast for Albuquerque (35.1,-106.6) tomorrow?", "city": "Albuquerque (35.1,-106.6)", "template_id": 0, "hash": "460a64a5a498"}
+{"query": "Give me the weather forecast in Austin (30.3,-97.7) for tomorrow.", "city": "Austin (30.3,-97.7)", "template_id": 1, "hash": "cf18fa8a5a58"}
+{"query": "Tell me the weather prediction for Los Angeles (34.1,-118.2) tomorrow.", "city": "Los Angeles (34.1,-118.2)", "template_id": 4, "hash": "ccd17d7a38d0"}
+{"query": "I'd like to know the weather forecast for Albuquerque (35.1,-106.6) for tomorrow.", "city": "Albuquerque (35.1,-106.6)", "template_id": 7, "hash": "edf8891985eb"}
+{"query": "Will it rain in Charlotte (35.2,-80.8) tomorrow?", "city": "Charlotte (35.2,-80.8)", "template_id": 2, "hash": "7ccd7eec56b7"}
+{"query": "What's tomorrow's weather like in Seattle (47.6,-122.3)?", "city": "Seattle (47.6,-122.3)", "template_id": 3, "hash": "ad57e6a0b1fc"}
+{"query": "Tell me the weather prediction for Phoenix (33.4,-112.1) tomorrow.", "city": "Phoenix (33.4,-112.1)", "template_id": 4, "hash": "8c7fc43d1875"}
+{"query": "How will the weather be in San Diego (32.7,-117.2) tomorrow?", "city": "San Diego (32.7,-117.2)", "template_id": 5, "hash": "276ebf21db03"}
+{"query": "What is the weather forecast for San Diego (32.7,-117.2) tomorrow?", "city": "San Diego (32.7,-117.2)", "template_id": 0, "hash": "fd579f555c15"}
+{"query": "Give me the weather forecast in Denver (39.7,-105.0) for tomorrow.", "city": "Denver (39.7,-105.0)", "template_id": 1, "hash": "5df0c4cb5e5b"}
+{"query": "What is the weather forecast for San Antonio (29.4,-98.5) tomorrow?", "city": "San Antonio (29.4,-98.5)", "template_id": 0, "hash": "4b51f616418e"}
+{"query": "What is the weather forecast for Los Angeles (34.1,-118.2) tomorrow?", "city": "Los Angeles (34.1,-118.2)", "template_id": 0, "hash": "c077c5202a82"}
+{"query": "Give me the weather forecast in Louisville (38.3,-85.8) for tomorrow.", "city": "Louisville (38.3,-85.8)", "template_id": 1, "hash": "2800080f7fb1"}
+{"query": "What's tomorrow's weather like in Austin (30.3,-97.7)?", "city": "Austin (30.3,-97.7)", "template_id": 3, "hash": "303d55449367"}
+{"query": "What's tomorrow's weather like in Memphis (35.1,-90.1)?", "city": "Memphis (35.1,-90.1)", "template_id": 3, "hash": "5dd6d59e3d41"}
+{"query": "Forecast tomorrow's weather in San Diego (32.7,-117.2), please.", "city": "San Diego (32.7,-117.2)", "template_id": 6, "hash": "3dd1118e29c1"}
+{"query": "How will the weather be in Austin (30.3,-97.7) tomorrow?", "city": "Austin (30.3,-97.7)", "template_id": 5, "hash": "2a932dd09357"}
+{"query": "Forecast tomorrow's weather in San Francisco (37.8,-122.4), please.", "city": "San Francisco (37.8,-122.4)", "template_id": 6, "hash": "c75e4caf77dd"}
+{"query": "What is the weather forecast for Las Vegas (36.2,-115.1) tomorrow?", "city": "Las Vegas (36.2,-115.1)", "template_id": 0, "hash": "fd9883a9592d"}
+{"query": "What is the weather forecast for Chicago (41.9,-87.6) tomorrow?", "city": "Chicago (41.9,-87.6)", "template_id": 0, "hash": "c8289c89afcb"}
+{"query": "What is the weather forecast for Boston (42.4,-71.1) tomorrow?", "city": "Boston (42.4,-71.1)", "template_id": 0, "hash": "92f123f116f7"}
+{"query": "What's tomorrow's weather like in El Paso (31.8,-106.4)?", "city": "El Paso (31.8,-106.4)", "template_id": 3, "hash": "a7795b365202"}
+{"query": "How will the weather be in Nashville (36.2,-86.8) tomorrow?", "city": "Nashville (36.2,-86.8)", "template_id": 5, "hash": "fc464476b6fe"}
+{"query": "Forecast tomorrow's weather in Fort Worth (32.8,-97.3), please.", "city": "Fort Worth (32.8,-97.3)", "template_id": 6, "hash": "ea8790ddaf92"}
+{"query": "What is the weather forecast for Detroit (42.3,-83.0) tomorrow?", "city": "Detroit (42.3,-83.0)", "template_id": 0, "hash": "bf4474edc5ac"}
+{"query": "I'd like to know the weather forecast for Los Angeles (34.1,-118.2) for tomorrow.", "city": "Los Angeles (34.1,-118.2)", "template_id": 7, "hash": "09fe606676b9"}
+{"query": "What's tomorrow's weather like in Chicago (41.9,-87.6)?", "city": "Chicago (41.9,-87.6)", "template_id": 3, "hash": "ed4ecb9a3c73"}
+{"query": "Tell me the weather prediction for Seattle (47.6,-122.3) tomorrow.", "city": "Seattle (47.6,-122.3)", "template_id": 4, "hash": "bc4c2b435387"}

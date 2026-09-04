@@ -1,0 +1,170 @@
+{
+  "model_id": "Qwen/Qwen3-8B",
+  "category": "weather_forecast",
+  "description": "Prefix mapping to ensure unique first tokens for all tools. Each tool name is prefixed with a NATO-phonetic-style word.",
+  "n_tools": 20,
+  "mapping": {
+    "DiogoAzevedo03_ipma-mcp-server_get_weather_forecast": {
+      "prefixed_name": "alpha_DiogoAzevedo03_ipma-mcp-server_get_weather_forecast",
+      "prefix": "alpha",
+      "first_token_id": 7141,
+      "first_token_str": "alpha",
+      "original_first_token_id": 21685
+    },
+    "adarshem_mcp-server-learn_get-forecast": {
+      "prefixed_name": "beta_adarshem_mcp-server-learn_get-forecast",
+      "prefix": "beta",
+      "first_token_id": 19127,
+      "first_token_str": "beta",
+      "original_first_token_id": 36080
+    },
+    "akaramanapp_weather-mcp-server_get-forecast": {
+      "prefixed_name": "gamma_akaramanapp_weather-mcp-server_get-forecast",
+      "prefix": "gamma",
+      "first_token_id": 32214,
+      "first_token_str": "gamma",
+      "original_first_token_id": 585
+    },
+    "brandao-20_mcp_server_ipma_get_weather_forecast": {
+      "prefixed_name": "delta_brandao-20_mcp_server_ipma_get_weather_forecast",
+      "prefix": "delta",
+      "first_token_id": 20255,
+      "first_token_str": "delta",
+      "original_first_token_id": 13473
+    },
+    "hellokitty-v_smithery-mcp-servers_get_hourly_forecast": {
+      "prefixed_name": "echo_hellokitty-v_smithery-mcp-servers_get_hourly_forecast",
+      "prefix": "echo",
+      "first_token_id": 3047,
+      "first_token_str": "echo",
+      "original_first_token_id": 14990
+    },
+    "hellokitty-v_smithery-mcp-servers_get_weather_forecast": {
+      "prefixed_name": "fox_hellokitty-v_smithery-mcp-servers_get_weather_forecast",
+      "prefix": "fox",
+      "first_token_id": 15011,
+      "first_token_str": "fox",
+      "original_first_token_id": 14990
+    },
+    "isabelayepes_weather_get_forecast": {
+      "prefixed_name": "hotel_isabelayepes_weather_get_forecast",
+      "prefix": "hotel",
+      "first_token_id": 38817,
+      "first_token_str": "hotel",
+      "original_first_token_id": 285
+    },
+    "isdaniel_mcp_weather_server_get_weather_byDateTimeRange": {
+      "prefixed_name": "kilo_isdaniel_mcp_weather_server_get_weather_byDateTimeRange",
+      "prefix": "kilo",
+      "first_token_id": 74,
+      "first_token_str": "k",
+      "original_first_token_id": 20640
+    },
+    "isdaniel_mcp_weather_server_get_weather_details": {
+      "prefixed_name": "lima_isdaniel_mcp_weather_server_get_weather_details",
+      "prefix": "lima",
+      "first_token_id": 4659,
+      "first_token_str": "lim",
+      "original_first_token_id": 20640
+    },
+    "jenniferjiang0511_mit-ai-studio-hw3_get_forecast": {
+      "prefixed_name": "november_jenniferjiang0511_mit-ai-studio-hw3_get_forecast",
+      "prefix": "november",
+      "first_token_id": 38042,
+      "first_token_str": "nov",
+      "original_first_token_id": 73
+    },
+    "jennyyyyyy7528-cell_mcpserverhw3_get_forecast": {
+      "prefixed_name": "oscar_jennyyyyyy7528-cell_mcpserverhw3_get_forecast",
+      "prefix": "oscar",
+      "first_token_id": 436,
+      "first_token_str": "os",
+      "original_first_token_id": 73
+    },
+    "jennyyyyyy7528-cell_weathermcpserverhw3_get_forecast": {
+      "prefixed_name": "quebec_jennyyyyyy7528-cell_weathermcpserverhw3_get_forecast",
+      "prefix": "quebec",
+      "first_token_id": 591,
+      "first_token_str": "que",
+      "original_first_token_id": 73
+    },
+    "smithery-ai_national-weather-service_get_hourly_forecast": {
+      "prefixed_name": "romeo_smithery-ai_national-weather-service_get_hourly_forecast",
+      "prefix": "romeo",
+      "first_token_id": 6648,
+      "first_token_str": "rome",
+      "original_first_token_id": 33017
+    },
+    "smithery-ai_national-weather-service_get_weather_forecast": {
+      "prefixed_name": "sierra_smithery-ai_national-weather-service_get_weather_forecast",
+      "prefix": "sierra",
+      "first_token_id": 6321,
+      "first_token_str": "si",
+      "original_first_token_id": 33017
+    },
+    "yusufsenyer_augment-agent_get_daily_forecast": {
+      "prefixed_name": "uniform_yusufsenyer_augment-agent_get_daily_forecast",
+      "prefix": "uniform",
+      "first_token_id": 38351,
+      "first_token_str": "uniform",
+      "original_first_token_id": 88
+    },
+    "yusufsenyer_augment-agent_get_daily_forecast_by_city": {
+      "prefixed_name": "victor_yusufsenyer_augment-agent_get_daily_forecast_by_city",
+      "prefix": "victor",
+      "first_token_id": 85,
+      "first_token_str": "v",
+      "original_first_token_id": 88
+    },
+    "yusufsenyer_augment-agent_get_hourly_forecast": {
+      "prefixed_name": "whiskey_yusufsenyer_augment-agent_get_hourly_forecast",
+      "prefix": "whiskey",
+      "first_token_id": 1312,
+      "first_token_str": "wh",
+      "original_first_token_id": 88
+    },
+    "yzsshen_mcp-demo_gridpoint": {
+      "prefixed_name": "xray_yzsshen_mcp-demo_gridpoint",
+      "prefix": "xray",
+      "first_token_id": 87,
+      "first_token_str": "x",
+      "original_first_token_id": 18348
+    },
+    "yzsshen_mcp-demo_gridpoint_forecast": {
+      "prefixed_name": "yankee_yzsshen_mcp-demo_gridpoint_forecast",
+      "prefix": "yankee",
+      "first_token_id": 8339,
+      "first_token_str": "yan",
+      "original_first_token_id": 18348
+    },
+    "yzsshen_mcp-demo_gridpoint_forecast_hourly": {
+      "prefixed_name": "zulu_yzsshen_mcp-demo_gridpoint_forecast_hourly",
+      "prefix": "zulu",
+      "first_token_id": 89,
+      "first_token_str": "z",
+      "original_first_token_id": 18348
+    }
+  },
+  "prefixed_to_original": {
+    "alpha_DiogoAzevedo03_ipma-mcp-server_get_weather_forecast": "DiogoAzevedo03_ipma-mcp-server_get_weather_forecast",
+    "beta_adarshem_mcp-server-learn_get-forecast": "adarshem_mcp-server-learn_get-forecast",
+    "gamma_akaramanapp_weather-mcp-server_get-forecast": "akaramanapp_weather-mcp-server_get-forecast",
+    "delta_brandao-20_mcp_server_ipma_get_weather_forecast": "brandao-20_mcp_server_ipma_get_weather_forecast",
+    "echo_hellokitty-v_smithery-mcp-servers_get_hourly_forecast": "hellokitty-v_smithery-mcp-servers_get_hourly_forecast",
+    "fox_hellokitty-v_smithery-mcp-servers_get_weather_forecast": "hellokitty-v_smithery-mcp-servers_get_weather_forecast",
+    "hotel_isabelayepes_weather_get_forecast": "isabelayepes_weather_get_forecast",
+    "kilo_isdaniel_mcp_weather_server_get_weather_byDateTimeRange": "isdaniel_mcp_weather_server_get_weather_byDateTimeRange",
+    "lima_isdaniel_mcp_weather_server_get_weather_details": "isdaniel_mcp_weather_server_get_weather_details",
+    "november_jenniferjiang0511_mit-ai-studio-hw3_get_forecast": "jenniferjiang0511_mit-ai-studio-hw3_get_forecast",
+    "oscar_jennyyyyyy7528-cell_mcpserverhw3_get_forecast": "jennyyyyyy7528-cell_mcpserverhw3_get_forecast",
+    "quebec_jennyyyyyy7528-cell_weathermcpserverhw3_get_forecast": "jennyyyyyy7528-cell_weathermcpserverhw3_get_forecast",
+    "romeo_smithery-ai_national-weather-service_get_hourly_forecast": "smithery-ai_national-weather-service_get_hourly_forecast",
+    "sierra_smithery-ai_national-weather-service_get_weather_forecast": "smithery-ai_national-weather-service_get_weather_forecast",
+    "uniform_yusufsenyer_augment-agent_get_daily_forecast": "yusufsenyer_augment-agent_get_daily_forecast",
+    "victor_yusufsenyer_augment-agent_get_daily_forecast_by_city": "yusufsenyer_augment-agent_get_daily_forecast_by_city",
+    "whiskey_yusufsenyer_augment-agent_get_hourly_forecast": "yusufsenyer_augment-agent_get_hourly_forecast",
+    "xray_yzsshen_mcp-demo_gridpoint": "yzsshen_mcp-demo_gridpoint",
+    "yankee_yzsshen_mcp-demo_gridpoint_forecast": "yzsshen_mcp-demo_gridpoint_forecast",
+    "zulu_yzsshen_mcp-demo_gridpoint_forecast_hourly": "yzsshen_mcp-demo_gridpoint_forecast_hourly"
+  }
+}
